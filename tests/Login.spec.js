@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 import {login} from '../Pages/LoginPage';
+import { login} from 
 
-test('test', async ({ page }) => {
+test('LoginPage', async ({ page }) => {
   await page.goto('./#/Login');
   login(page);
 });
