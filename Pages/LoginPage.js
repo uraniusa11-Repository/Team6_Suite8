@@ -1,3 +1,7 @@
+
+import { expect } from '@playwright/test';
+import { HomePage } from '../Pages/HomePage';
+import { navigateTo } from '../support/helpers';
 export class LoginPage {
 
     constructor(page) {
@@ -20,10 +24,10 @@ export class LoginPage {
 
     async userlogin(username, password)
     {
-    await navigateTo(page, 'Login');
-    await login(username, password);
-    await page.waitForURL(url => url.href.includes('/home'));
-    await expect(new HomePage(page).dashboardLink).toBeVisible();
+    await navigateTo(this.page, 'Login');
+    await this.login(username, password);
+    await this.page.waitForURL(url => url.href.includes('/home'));
+    await expect(new HomePage(this.page).dashboardLink).toBeVisible();
     }
 
 //     async checkForAlert() {
