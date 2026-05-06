@@ -18,6 +18,15 @@ Given('user is on the login page', async ({ page }) => {
   await navigateTo(page, 'Login');
 });
 
+
+/*use this*/
+
+// Given('user is loogedin', async ({page }) => {
+//  await (new LoginPage(page)).userlogin(appConfig.username, appConfig.password)
+// });
+
+
+
 When('user logs in with valid credentials', async () => {
   await loginPage.login(appConfig.username, appConfig.password);
 });
