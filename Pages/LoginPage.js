@@ -1,7 +1,6 @@
 
-import { expect } from '@playwright/test';
 import { HomePage } from '../Pages/HomePage';
-import { navigateTo } from '../support/helpers';
+import { navigateTo, fill, click, assertVisible, waitForURL } from '../support/helpers';
 export class LoginPage {
 
     constructor(page) {
@@ -15,38 +14,93 @@ export class LoginPage {
     }
 
     async login(username, password) {
-        await this.userNameTextbox.fill(username);
-        await this.passwordTextbox.fill(password);
-        await this.loginButton.waitFor({ state: 'visible', timeout: 30000 })
-        await this.loginButton.click({ timeout: 15000 })
-        //await this.loginButton.click();
+        await fill(this.userNameTextbox, username);
+        await fill(this.passwordTextbox, password);
+        await this.loginButton.waitFor({ state: 'visible', timeout: 30000 });
+        await click(this.loginButton);
     }
 
     async userlogin(username, password)
     {
     await navigateTo(this.page, 'Login');
     await this.login(username, password);
-    await this.page.waitForURL(url => url.href.includes('/home'));
-    await expect(new HomePage(this.page).dashboardLink).toBeVisible();
+    await waitForURL(this.page, '/home');
+    await assertVisible(new HomePage(this.page).dashboardLink, { timeout: 30000 });
+   
+
     }
+
+    async checkForAlert(testInfo) {
+        try{
+        await this.credentialsError.waitFor({ state: 'visible', timeout: 5000 });
+            const isCount = await this.credentialsError.count(); 
+            console.log(`Alert found: ${isCount}`);
+            const alertText = await this.credentialsError.textContent()
+            console.log(`Alert found: ${alertText}`)
+           // await this.page.pause();       
+            if (isCount>0) {
+                const alertText = await this.credentialsError.textContent()
+                console.log(`Alert found: ${alertText}`)
+                await testInfo.attach('alert-message', {
+                    body: alertText.trim(),
+                    contentType: 'text/plain'
+                                       })
+                throw new Error(`Alert displayed: ${alertText.trim()}`)                               
+                            }             
+                        }
+
+         catch(error)  
+         {
+            
+         }             
+    }
+//}
 
 //     async checkForAlert() {
 //     try {
         
-//         await this.credentialsError .waitFor({ state: 'visible', timeout: 3000 })
-//         const alertText = await this.alertMessage.textContent()
+//         console.log("print I am here");
+//         //
+//         const isVisible = await this.credentialsError.isVisible()
+//         const isVisible =this.page.getByRole('alert').isVisible()
+//        const isvisible1= this.page.getByText('Too many failed login').isVisible()
+
+//        console.log("isvisible1 is ",isvisible1);
+
+//        if(!isvisible)
+//        {
+//         console.log("I am  not visible");
+//        }
+
+
+//        if(isvisible1)
+//        {
+//         console.log("I am visible");
+//        }
+
+//         if (isVisible) {
+//         const alertText = await this.credentialsError.textContent()
+//         console.log(`Alert found: ${alertText}`)
 //         await testInfo.attach('alert-message', {
 //             body: alertText.trim(),
 //             contentType: 'text/plain'
-//         })
+//                                             })
+//              throw new Error(`Alert displayed: ${alertText.trim()}`)                               
+//                         }
+//         //await this.credentialsError .waitFor({ state: 'visible', timeout: 3000 });
+//         //await this.page.Pause();
+//         //const alertText = await this.alertMessage.textContent();
+//        // console.log("print",alertText);
+//         // await testInfo.attach('alert-message', {
+//         //     body: alertText.trim(),
+//         //     contentType: 'text/plain'
+//         //})
 
-//         throw new Error(`Alert displayed: ${alertText.trim()}`)
+        
 
 //     } catch (error) {
         
-//         if (error.message.includes('Alert detected')) {
-//             throw error
-//         }
+        
         
 //     }
 // }
