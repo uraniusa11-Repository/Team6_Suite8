@@ -22,6 +22,8 @@ jobs:
       run:  npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Generate BDD specs
+      run: npx bddgen
     - name: Run Playwright tests
       run: npx playwright test --project=bdd --grep "Home Page" --reporter=html
       env:
