@@ -1,24 +1,33 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, Shivagami]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout code
     - uses: actions/checkout@v4
+    - name: Setup Node.js
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
     - name: Install dependencies
-      run: npm ci
+      run:  npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
+      env:
+        SUITE_USERNAME: ${{ secrets.SUITE_USERNAME }}
+        SUITE_PASSWORD: ${{ secrets.SUITE_PASSWORD }}
+        SUITE_URL: ${{ secrets.SUITE_URL }}
+        CI: true
+        LOG_CONSOLE: false
+        LOG_LEVEL: error
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
