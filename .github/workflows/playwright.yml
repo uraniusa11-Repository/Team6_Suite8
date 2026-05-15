@@ -11,6 +11,13 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      SUITE_USERNAME: ${{ secrets.SUITE_USERNAME }}
+      SUITE_PASSWORD: ${{ secrets.SUITE_PASSWORD }}
+      SUITE_URL: ${{ secrets.SUITE_URL }}
+      CI: true
+      LOG_CONSOLE: false
+      LOG_LEVEL: error
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -26,13 +33,6 @@ jobs:
       run: npx bddgen
     - name: Run Playwright tests
       run: npx playwright test --project=bdd --grep "Home Page" --reporter=html
-      env:
-        SUITE_USERNAME: ${{ secrets.SUITE_USERNAME }}
-        SUITE_PASSWORD: ${{ secrets.SUITE_PASSWORD }}
-        SUITE_URL: ${{ secrets.SUITE_URL }}
-        CI: true
-        LOG_CONSOLE: false
-        LOG_LEVEL: error
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
