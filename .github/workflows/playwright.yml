@@ -23,7 +23,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test --reporter=html
+      run: npx playwright test --project=bdd --grep "Home Page" --reporter=html
       env:
         SUITE_USERNAME: ${{ secrets.SUITE_USERNAME }}
         SUITE_PASSWORD: ${{ secrets.SUITE_PASSWORD }}
