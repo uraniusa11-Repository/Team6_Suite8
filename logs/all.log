@@ -1,0 +1,337 @@
+[2026-05-14T21:16:43.262Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:16:43.309Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-14T21:16:47.409Z] [INFO] [undefined] [Home Tests] Verifying nav menu items are visible: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-14T21:16:58.565Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:16:58.600Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-14T21:17:02.048Z] [INFO] [undefined] [Home Tests] Queued elements to verify highlight: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More, Quick Actions, Recently Viewed, Profile
+[2026-05-14T21:17:02.053Z] [INFO] [undefined] [Home Tests] Verifying each navigation element is highlighted on hover
+[2026-05-14T21:17:02.054Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Accounts
+[2026-05-14T21:17:04.768Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Accounts
+[2026-05-14T21:17:04.811Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Contacts
+[2026-05-14T21:17:05.127Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Contacts
+[2026-05-14T21:17:05.141Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Opportunities
+[2026-05-14T21:17:05.205Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Opportunities
+[2026-05-14T21:17:05.220Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Leads
+[2026-05-14T21:17:05.386Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Leads
+[2026-05-14T21:17:05.400Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Quotes
+[2026-05-14T21:17:05.509Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Quotes
+[2026-05-14T21:17:05.531Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Calendar
+[2026-05-14T21:17:05.637Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Calendar
+[2026-05-14T21:17:05.667Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Documents
+[2026-05-14T21:17:05.749Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Documents
+[2026-05-14T21:17:05.759Z] [DEBUG] [undefined] [Home Tests] Hovering over element: More
+[2026-05-14T21:17:05.822Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: More
+[2026-05-14T21:17:05.833Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Quick Actions
+[2026-05-14T21:17:05.910Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Quick Actions
+[2026-05-14T21:17:05.923Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Recently Viewed
+[2026-05-14T21:17:05.987Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Recently Viewed
+[2026-05-14T21:17:06.000Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Profile
+[2026-05-14T21:17:06.057Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Profile
+[2026-05-14T21:17:06.901Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:17:06.906Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-14T21:17:19.170Z] [INFO] [undefined] [Home Tests] Queued nav links to verify dropdown: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-14T21:17:19.174Z] [INFO] [undefined] [Home Tests] Verifying each nav link shows a dropdown on hover
+[2026-05-14T21:17:19.174Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Accounts
+[2026-05-14T21:17:33.437Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Contacts
+[2026-05-14T21:17:33.657Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Opportunities
+[2026-05-14T21:17:33.737Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Leads
+[2026-05-14T21:17:33.848Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Quotes
+[2026-05-14T21:17:33.933Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Calendar
+[2026-05-14T21:17:34.014Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Documents
+[2026-05-14T21:17:34.081Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: More
+[2026-05-14T21:17:34.675Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:17:34.679Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-14T21:17:38.832Z] [INFO] [undefined] [Home Tests] Hovering over Quick Actions icon
+[2026-05-14T21:17:43.600Z] [INFO] [undefined] [Home Tests] Verifying Quick Actions dropdown and its items
+[2026-05-14T21:17:44.509Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:17:44.517Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-14T21:17:48.687Z] [INFO] [undefined] [Home Tests] Hovering over User Profile icon
+[2026-05-14T21:17:52.450Z] [INFO] [undefined] [Home Tests] Verifying profile dropdown options
+[2026-05-14T21:17:52.957Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:17:52.960Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-14T21:17:56.096Z] [INFO] [undefined] [Home Tests] Verifying Home icon is visible
+[2026-05-14T21:17:59.078Z] [INFO] [undefined] [Home Tests] Clicking Home icon
+[2026-05-14T21:17:59.178Z] [INFO] [undefined] [Home Tests] Verifying redirect to home dashboard
+[2026-05-14T21:18:04.974Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:18:04.999Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-14T21:18:08.102Z] [INFO] [undefined] [Home Tests] Verifying Search field is visible
+[2026-05-14T21:18:09.045Z] [INFO] [undefined] [Home Tests] Hovering over Search field
+[2026-05-14T21:18:10.101Z] [INFO] [undefined] [Home Tests] Verifying Search field is highlighted
+[2026-05-14T21:18:10.102Z] [DEBUG] [undefined] [Home Tests] Verifying search container highlight CSS
+[2026-05-14T21:18:11.148Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:18:11.152Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-14T21:18:15.218Z] [INFO] [undefined] [Home Tests] Hovering over Recently Viewed icon
+[2026-05-14T21:18:21.189Z] [INFO] [undefined] [Home Tests] Verifying Recently Viewed panel and items
+[2026-05-14T21:18:21.189Z] [DEBUG] [undefined] [Home Tests] Verifying recently viewed panel is visible
+[2026-05-14T21:18:21.213Z] [DEBUG] [undefined] [Home Tests] Recently viewed items count: 1
+[2026-05-14T21:18:21.832Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:18:58.167Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:19:34.430Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:20:09.126Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:20:43.574Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:21:20.522Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-14T21:21:58.257Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-15T11:08:29.005Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-15T11:08:29.044Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-15T11:08:32.807Z] [INFO] [undefined] [Home Tests] Verifying nav menu items are visible: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-15T11:08:37.016Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-15T11:08:37.023Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-15T11:08:40.642Z] [INFO] [undefined] [Home Tests] Queued elements to verify highlight: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More, Quick Actions, Recently Viewed, Profile
+[2026-05-15T11:08:40.646Z] [INFO] [undefined] [Home Tests] Verifying each navigation element is highlighted on hover
+[2026-05-15T11:08:40.646Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Accounts
+[2026-05-15T11:08:43.641Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Accounts
+[2026-05-15T11:08:43.673Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Contacts
+[2026-05-15T11:08:43.884Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Contacts
+[2026-05-15T11:08:43.900Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Opportunities
+[2026-05-15T11:08:44.034Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Opportunities
+[2026-05-15T11:08:44.045Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Leads
+[2026-05-15T11:08:44.119Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Leads
+[2026-05-15T11:08:44.129Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Quotes
+[2026-05-15T11:08:44.233Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Quotes
+[2026-05-15T11:08:44.244Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Calendar
+[2026-05-15T11:08:44.393Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Calendar
+[2026-05-15T11:08:44.408Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Documents
+[2026-05-15T11:08:44.936Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Documents
+[2026-05-15T11:08:44.945Z] [DEBUG] [undefined] [Home Tests] Hovering over element: More
+[2026-05-15T11:08:44.995Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: More
+[2026-05-15T11:08:45.018Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Quick Actions
+[2026-05-15T11:08:45.180Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Quick Actions
+[2026-05-15T11:08:45.237Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Recently Viewed
+[2026-05-15T11:08:45.351Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Recently Viewed
+[2026-05-15T11:08:45.364Z] [DEBUG] [undefined] [Home Tests] Hovering over element: Profile
+[2026-05-15T11:08:45.441Z] [DEBUG] [undefined] [Home Tests] Verifying highlight CSS for: Profile
+[2026-05-15T11:08:46.157Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-15T11:08:46.162Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-15T11:08:49.987Z] [INFO] [undefined] [Home Tests] Queued nav links to verify dropdown: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-15T11:08:49.990Z] [INFO] [undefined] [Home Tests] Verifying each nav link shows a dropdown on hover
+[2026-05-15T11:08:49.991Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Accounts
+[2026-05-15T11:08:52.993Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Contacts
+[2026-05-15T11:08:53.173Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Opportunities
+[2026-05-15T11:08:53.257Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Leads
+[2026-05-15T11:08:53.426Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Quotes
+[2026-05-15T11:08:53.547Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Calendar
+[2026-05-15T11:08:53.692Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: Documents
+[2026-05-15T11:08:54.303Z] [DEBUG] [undefined] [Home Tests] Hovering over nav link: More
+[2026-05-15T11:08:55.148Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-15T11:08:55.155Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-15T11:08:58.553Z] [INFO] [undefined] [Home Tests] Hovering over Quick Actions icon
+[2026-05-15T11:09:00.508Z] [INFO] [undefined] [Home Tests] Verifying Quick Actions dropdown and its items
+[2026-05-15T11:09:01.392Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-15T11:09:01.398Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-15T11:09:04.885Z] [INFO] [undefined] [Home Tests] Hovering over User Profile icon
+[2026-05-15T11:09:06.893Z] [INFO] [undefined] [Home Tests] Verifying profile dropdown options
+[2026-05-15T11:09:07.590Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-15T11:09:07.595Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-15T11:09:10.911Z] [INFO] [undefined] [Home Tests] Verifying Home icon is visible
+[2026-05-15T11:09:12.870Z] [INFO] [undefined] [Home Tests] Clicking Home icon
+[2026-05-15T11:09:12.935Z] [INFO] [undefined] [Home Tests] Verifying redirect to home dashboard
+[2026-05-15T11:09:16.028Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-15T11:09:16.032Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-15T11:09:19.374Z] [INFO] [undefined] [Home Tests] Verifying Search field is visible
+[2026-05-15T11:09:20.382Z] [INFO] [undefined] [Home Tests] Hovering over Search field
+[2026-05-15T11:09:21.387Z] [INFO] [undefined] [Home Tests] Verifying Search field is highlighted
+[2026-05-15T11:09:21.387Z] [DEBUG] [undefined] [Home Tests] Verifying search container highlight CSS
+[2026-05-15T11:09:22.457Z] [INFO] [undefined] [Home Tests] Home test setup complete
+[2026-05-15T11:09:22.462Z] [INFO] [undefined] [Home Tests] Navigating to home page
+[2026-05-15T11:09:25.800Z] [INFO] [undefined] [Home Tests] Hovering over Recently Viewed icon
+[2026-05-15T11:09:27.633Z] [INFO] [undefined] [Home Tests] Verifying Recently Viewed panel and items
+[2026-05-15T11:09:27.634Z] [DEBUG] [undefined] [Home Tests] Verifying recently viewed panel is visible
+[2026-05-15T11:09:27.673Z] [DEBUG] [undefined] [Home Tests] Recently viewed items count: 1
+[2026-05-15T11:25:39.329Z] [INFO] [bdd] [Verify all nav links  are visible in the navigation bar] Home test setup complete
+[2026-05-15T11:25:39.363Z] [INFO] [bdd] [Verify all nav links  are visible in the navigation bar] Navigating to home page
+[2026-05-15T11:25:42.829Z] [INFO] [bdd] [Verify all nav links  are visible in the navigation bar] Verifying nav menu items are visible: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-15T11:25:46.329Z] [INFO] [bdd] [Verify nav links and icons are highlighted on hover] Home test setup complete
+[2026-05-15T11:25:46.336Z] [INFO] [bdd] [Verify nav links and icons are highlighted on hover] Navigating to home page
+[2026-05-15T11:25:50.270Z] [INFO] [bdd] [Verify nav links and icons are highlighted on hover] Queued elements to verify highlight: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More, Quick Actions, Recently Viewed, Profile
+[2026-05-15T11:25:50.272Z] [INFO] [bdd] [Verify nav links and icons are highlighted on hover] Verifying each navigation element is highlighted on hover
+[2026-05-15T11:25:50.273Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Accounts
+[2026-05-15T11:25:53.640Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Accounts
+[2026-05-15T11:25:53.654Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Contacts
+[2026-05-15T11:25:53.762Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Contacts
+[2026-05-15T11:25:53.790Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Opportunities
+[2026-05-15T11:25:53.911Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Opportunities
+[2026-05-15T11:25:53.921Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Leads
+[2026-05-15T11:25:54.041Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Leads
+[2026-05-15T11:25:54.059Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Quotes
+[2026-05-15T11:25:54.121Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Quotes
+[2026-05-15T11:25:54.128Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Calendar
+[2026-05-15T11:25:54.195Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Calendar
+[2026-05-15T11:25:54.207Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Documents
+[2026-05-15T11:25:55.059Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Documents
+[2026-05-15T11:25:55.071Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: More
+[2026-05-15T11:25:55.122Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: More
+[2026-05-15T11:25:55.130Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Quick Actions
+[2026-05-15T11:25:55.204Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Quick Actions
+[2026-05-15T11:25:55.214Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Recently Viewed
+[2026-05-15T11:25:55.283Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Recently Viewed
+[2026-05-15T11:25:55.293Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Hovering over element: Profile
+[2026-05-15T11:25:55.337Z] [DEBUG] [bdd] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Profile
+[2026-05-15T11:25:55.895Z] [INFO] [bdd] [Verify navigation links show dropdown on hover] Home test setup complete
+[2026-05-15T11:25:55.900Z] [INFO] [bdd] [Verify navigation links show dropdown on hover] Navigating to home page
+[2026-05-15T11:25:58.910Z] [INFO] [bdd] [Verify navigation links show dropdown on hover] Queued nav links to verify dropdown: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-15T11:25:58.912Z] [INFO] [bdd] [Verify navigation links show dropdown on hover] Verifying each nav link shows a dropdown on hover
+[2026-05-15T11:25:58.913Z] [DEBUG] [bdd] [Verify navigation links show dropdown on hover] Hovering over nav link: Accounts
+[2026-05-15T11:26:01.568Z] [DEBUG] [bdd] [Verify navigation links show dropdown on hover] Hovering over nav link: Contacts
+[2026-05-15T11:26:01.785Z] [DEBUG] [bdd] [Verify navigation links show dropdown on hover] Hovering over nav link: Opportunities
+[2026-05-15T11:26:01.929Z] [DEBUG] [bdd] [Verify navigation links show dropdown on hover] Hovering over nav link: Leads
+[2026-05-15T11:26:02.030Z] [DEBUG] [bdd] [Verify navigation links show dropdown on hover] Hovering over nav link: Quotes
+[2026-05-15T11:26:02.279Z] [DEBUG] [bdd] [Verify navigation links show dropdown on hover] Hovering over nav link: Calendar
+[2026-05-15T11:26:02.908Z] [DEBUG] [bdd] [Verify navigation links show dropdown on hover] Hovering over nav link: Documents
+[2026-05-15T11:26:03.065Z] [DEBUG] [bdd] [Verify navigation links show dropdown on hover] Hovering over nav link: More
+[2026-05-15T11:26:03.663Z] [INFO] [bdd] [Verify Quick Actions] Home test setup complete
+[2026-05-15T11:26:03.667Z] [INFO] [bdd] [Verify Quick Actions] Navigating to home page
+[2026-05-15T11:26:06.866Z] [INFO] [bdd] [Verify Quick Actions] Hovering over Quick Actions icon
+[2026-05-15T11:26:09.315Z] [INFO] [bdd] [Verify Quick Actions] Verifying Quick Actions dropdown and its items
+[2026-05-15T11:26:10.306Z] [INFO] [bdd] [Verify User profile icon] Home test setup complete
+[2026-05-15T11:26:10.313Z] [INFO] [bdd] [Verify User profile icon] Navigating to home page
+[2026-05-15T11:26:13.431Z] [INFO] [bdd] [Verify User profile icon] Hovering over User Profile icon
+[2026-05-15T11:26:15.297Z] [INFO] [bdd] [Verify User profile icon] Verifying profile dropdown options
+[2026-05-15T11:26:15.902Z] [INFO] [bdd] [Verify Home Icon] Home test setup complete
+[2026-05-15T11:26:15.908Z] [INFO] [bdd] [Verify Home Icon] Navigating to home page
+[2026-05-15T11:26:18.954Z] [INFO] [bdd] [Verify Home Icon] Verifying Home icon is visible
+[2026-05-15T11:26:21.911Z] [INFO] [bdd] [Verify Home Icon] Clicking Home icon
+[2026-05-15T11:26:22.038Z] [INFO] [bdd] [Verify Home Icon] Verifying redirect to home dashboard
+[2026-05-15T11:26:33.241Z] [INFO] [bdd] [Verify Search field] Home test setup complete
+[2026-05-15T11:26:33.276Z] [INFO] [bdd] [Verify Search field] Navigating to home page
+[2026-05-15T11:26:36.606Z] [INFO] [bdd] [Verify Search field] Verifying Search field is visible
+[2026-05-15T11:26:37.170Z] [INFO] [bdd] [Verify Search field] Hovering over Search field
+[2026-05-15T11:26:38.704Z] [INFO] [bdd] [Verify Search field] Verifying Search field is highlighted
+[2026-05-15T11:26:38.705Z] [DEBUG] [bdd] [Verify Search field] Verifying search container highlight CSS
+[2026-05-15T11:26:40.396Z] [INFO] [bdd] [Verify Recently Viewed] Home test setup complete
+[2026-05-15T11:26:40.401Z] [INFO] [bdd] [Verify Recently Viewed] Navigating to home page
+[2026-05-15T11:26:43.501Z] [INFO] [bdd] [Verify Recently Viewed] Hovering over Recently Viewed icon
+[2026-05-15T11:26:45.926Z] [INFO] [bdd] [Verify Recently Viewed] Verifying Recently Viewed panel and items
+[2026-05-15T11:26:45.927Z] [DEBUG] [bdd] [Verify Recently Viewed] Verifying recently viewed panel is visible
+[2026-05-15T11:26:46.038Z] [DEBUG] [bdd] [Verify Recently Viewed] Recently viewed items count: 5
+[2026-05-15T11:43:42.715Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify all nav links  are visible in the navigation bar] Home test setup complete
+[2026-05-15T11:43:42.747Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify all nav links  are visible in the navigation bar] Navigating to home page
+[2026-05-15T11:43:45.943Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify all nav links  are visible in the navigation bar] Verifying nav menu items are visible: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-15T11:43:49.177Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Home test setup complete
+[2026-05-15T11:43:49.183Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Navigating to home page
+[2026-05-15T11:43:52.193Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Queued elements to verify highlight: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More, Quick Actions, Recently Viewed, Profile
+[2026-05-15T11:43:52.196Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying each navigation element is highlighted on hover
+[2026-05-15T11:43:52.197Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Accounts
+[2026-05-15T11:43:54.599Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Accounts
+[2026-05-15T11:43:54.636Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Contacts
+[2026-05-15T11:43:54.813Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Contacts
+[2026-05-15T11:43:54.868Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Opportunities
+[2026-05-15T11:43:54.921Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Opportunities
+[2026-05-15T11:43:54.934Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Leads
+[2026-05-15T11:43:55.054Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Leads
+[2026-05-15T11:43:55.063Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Quotes
+[2026-05-15T11:43:55.126Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Quotes
+[2026-05-15T11:43:55.137Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Calendar
+[2026-05-15T11:43:55.238Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Calendar
+[2026-05-15T11:43:55.247Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Documents
+[2026-05-15T11:43:55.290Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Documents
+[2026-05-15T11:43:55.299Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: More
+[2026-05-15T11:43:55.339Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: More
+[2026-05-15T11:43:55.348Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Quick Actions
+[2026-05-15T11:43:55.435Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Quick Actions
+[2026-05-15T11:43:55.442Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Recently Viewed
+[2026-05-15T11:43:55.545Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Recently Viewed
+[2026-05-15T11:43:55.580Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Hovering over element: Profile
+[2026-05-15T11:43:56.045Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Profile
+[2026-05-15T11:43:56.730Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Home test setup complete
+[2026-05-15T11:43:56.735Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Navigating to home page
+[2026-05-15T11:43:59.547Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Queued nav links to verify dropdown: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-15T11:43:59.549Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Verifying each nav link shows a dropdown on hover
+[2026-05-15T11:43:59.549Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Hovering over nav link: Accounts
+[2026-05-15T11:44:01.699Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Hovering over nav link: Contacts
+[2026-05-15T11:44:01.773Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Hovering over nav link: Opportunities
+[2026-05-15T11:44:01.837Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Hovering over nav link: Leads
+[2026-05-15T11:44:01.953Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Hovering over nav link: Quotes
+[2026-05-15T11:44:02.051Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Hovering over nav link: Calendar
+[2026-05-15T11:44:02.114Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Hovering over nav link: Documents
+[2026-05-15T11:44:02.165Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify navigation links show dropdown on hover] Hovering over nav link: More
+[2026-05-15T11:44:02.863Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Quick Actions] Home test setup complete
+[2026-05-15T11:44:02.868Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Quick Actions] Navigating to home page
+[2026-05-15T11:44:05.954Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Quick Actions] Hovering over Quick Actions icon
+[2026-05-15T11:44:08.234Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Quick Actions] Verifying Quick Actions dropdown and its items
+[2026-05-15T11:44:09.177Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify User profile icon] Home test setup complete
+[2026-05-15T11:44:09.181Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify User profile icon] Navigating to home page
+[2026-05-15T11:44:12.080Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify User profile icon] Hovering over User Profile icon
+[2026-05-15T11:44:13.901Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify User profile icon] Verifying profile dropdown options
+[2026-05-15T11:44:14.586Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Home Icon] Home test setup complete
+[2026-05-15T11:44:14.591Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Home Icon] Navigating to home page
+[2026-05-15T11:44:17.678Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Home Icon] Verifying Home icon is visible
+[2026-05-15T11:44:19.748Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Home Icon] Clicking Home icon
+[2026-05-15T11:44:19.813Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Home Icon] Verifying redirect to home dashboard
+[2026-05-15T11:44:24.925Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Search field] Home test setup complete
+[2026-05-15T11:44:24.930Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Search field] Navigating to home page
+[2026-05-15T11:44:27.756Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Search field] Verifying Search field is visible
+[2026-05-15T11:44:29.709Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Search field] Hovering over Search field
+[2026-05-15T11:44:30.545Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Search field] Verifying Search field is highlighted
+[2026-05-15T11:44:30.545Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify Search field] Verifying search container highlight CSS
+[2026-05-15T11:44:31.791Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Recently Viewed] Home test setup complete
+[2026-05-15T11:44:31.795Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Recently Viewed] Navigating to home page
+[2026-05-15T11:44:35.399Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Recently Viewed] Hovering over Recently Viewed icon
+[2026-05-15T11:44:37.790Z] [INFO] [.features-gen\login\Features\home.feature.spec.js] [Verify Recently Viewed] Verifying Recently Viewed panel and items
+[2026-05-15T11:44:37.791Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify Recently Viewed] Verifying recently viewed panel is visible
+[2026-05-15T11:44:37.812Z] [DEBUG] [.features-gen\login\Features\home.feature.spec.js] [Verify Recently Viewed] Recently viewed items count: 7
+[2026-05-15T11:46:30.873Z] [INFO] [Home Page] [Verify all nav links  are visible in the navigation bar] Home test setup complete
+[2026-05-15T11:46:30.905Z] [INFO] [Home Page] [Verify all nav links  are visible in the navigation bar] Navigating to home page
+[2026-05-15T11:46:33.782Z] [INFO] [Home Page] [Verify all nav links  are visible in the navigation bar] Verifying nav menu items are visible: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-15T11:46:36.835Z] [INFO] [Home Page] [Verify nav links and icons are highlighted on hover] Home test setup complete
+[2026-05-15T11:46:36.840Z] [INFO] [Home Page] [Verify nav links and icons are highlighted on hover] Navigating to home page
+[2026-05-15T11:46:39.926Z] [INFO] [Home Page] [Verify nav links and icons are highlighted on hover] Queued elements to verify highlight: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More, Quick Actions, Recently Viewed, Profile
+[2026-05-15T11:46:39.929Z] [INFO] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying each navigation element is highlighted on hover
+[2026-05-15T11:46:39.930Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Accounts
+[2026-05-15T11:46:42.551Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Accounts
+[2026-05-15T11:46:42.586Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Contacts
+[2026-05-15T11:46:42.781Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Contacts
+[2026-05-15T11:46:42.792Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Opportunities
+[2026-05-15T11:46:42.852Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Opportunities
+[2026-05-15T11:46:42.867Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Leads
+[2026-05-15T11:46:42.952Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Leads
+[2026-05-15T11:46:42.961Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Quotes
+[2026-05-15T11:46:43.059Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Quotes
+[2026-05-15T11:46:43.067Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Calendar
+[2026-05-15T11:46:43.117Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Calendar
+[2026-05-15T11:46:43.125Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Documents
+[2026-05-15T11:46:43.165Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Documents
+[2026-05-15T11:46:43.173Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: More
+[2026-05-15T11:46:43.234Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: More
+[2026-05-15T11:46:43.253Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Quick Actions
+[2026-05-15T11:46:43.339Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Quick Actions
+[2026-05-15T11:46:43.352Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Recently Viewed
+[2026-05-15T11:46:43.472Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Recently Viewed
+[2026-05-15T11:46:43.484Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Hovering over element: Profile
+[2026-05-15T11:46:43.890Z] [DEBUG] [Home Page] [Verify nav links and icons are highlighted on hover] Verifying highlight CSS for: Profile
+[2026-05-15T11:46:44.726Z] [INFO] [Home Page] [Verify navigation links show dropdown on hover] Home test setup complete
+[2026-05-15T11:46:44.731Z] [INFO] [Home Page] [Verify navigation links show dropdown on hover] Navigating to home page
+[2026-05-15T11:46:47.524Z] [INFO] [Home Page] [Verify navigation links show dropdown on hover] Queued nav links to verify dropdown: Accounts, Contacts, Opportunities, Leads, Quotes, Calendar, Documents, More
+[2026-05-15T11:46:47.526Z] [INFO] [Home Page] [Verify navigation links show dropdown on hover] Verifying each nav link shows a dropdown on hover
+[2026-05-15T11:46:47.527Z] [DEBUG] [Home Page] [Verify navigation links show dropdown on hover] Hovering over nav link: Accounts
+[2026-05-15T11:46:50.212Z] [DEBUG] [Home Page] [Verify navigation links show dropdown on hover] Hovering over nav link: Contacts
+[2026-05-15T11:46:50.563Z] [DEBUG] [Home Page] [Verify navigation links show dropdown on hover] Hovering over nav link: Opportunities
+[2026-05-15T11:46:50.738Z] [DEBUG] [Home Page] [Verify navigation links show dropdown on hover] Hovering over nav link: Leads
+[2026-05-15T11:46:50.810Z] [DEBUG] [Home Page] [Verify navigation links show dropdown on hover] Hovering over nav link: Quotes
+[2026-05-15T11:46:50.942Z] [DEBUG] [Home Page] [Verify navigation links show dropdown on hover] Hovering over nav link: Calendar
+[2026-05-15T11:46:51.041Z] [DEBUG] [Home Page] [Verify navigation links show dropdown on hover] Hovering over nav link: Documents
+[2026-05-15T11:46:51.150Z] [DEBUG] [Home Page] [Verify navigation links show dropdown on hover] Hovering over nav link: More
+[2026-05-15T11:46:52.344Z] [INFO] [Home Page] [Verify Quick Actions] Home test setup complete
+[2026-05-15T11:46:52.348Z] [INFO] [Home Page] [Verify Quick Actions] Navigating to home page
+[2026-05-15T11:46:55.836Z] [INFO] [Home Page] [Verify Quick Actions] Hovering over Quick Actions icon
+[2026-05-15T11:46:57.964Z] [INFO] [Home Page] [Verify Quick Actions] Verifying Quick Actions dropdown and its items
+[2026-05-15T11:46:58.552Z] [INFO] [Home Page] [Verify User profile icon] Home test setup complete
+[2026-05-15T11:46:58.556Z] [INFO] [Home Page] [Verify User profile icon] Navigating to home page
+[2026-05-15T11:47:01.700Z] [INFO] [Home Page] [Verify User profile icon] Hovering over User Profile icon
+[2026-05-15T11:47:03.419Z] [INFO] [Home Page] [Verify User profile icon] Verifying profile dropdown options
+[2026-05-15T11:47:04.337Z] [INFO] [Home Page] [Verify Home Icon] Home test setup complete
+[2026-05-15T11:47:04.341Z] [INFO] [Home Page] [Verify Home Icon] Navigating to home page
+[2026-05-15T11:47:07.376Z] [INFO] [Home Page] [Verify Home Icon] Verifying Home icon is visible
+[2026-05-15T11:47:09.293Z] [INFO] [Home Page] [Verify Home Icon] Clicking Home icon
+[2026-05-15T11:47:09.346Z] [INFO] [Home Page] [Verify Home Icon] Verifying redirect to home dashboard
+[2026-05-15T11:47:12.518Z] [INFO] [Home Page] [Verify Search field] Home test setup complete
+[2026-05-15T11:47:12.523Z] [INFO] [Home Page] [Verify Search field] Navigating to home page
+[2026-05-15T11:47:15.866Z] [INFO] [Home Page] [Verify Search field] Verifying Search field is visible
+[2026-05-15T11:47:16.379Z] [INFO] [Home Page] [Verify Search field] Hovering over Search field
+[2026-05-15T11:47:17.727Z] [INFO] [Home Page] [Verify Search field] Verifying Search field is highlighted
+[2026-05-15T11:47:17.727Z] [DEBUG] [Home Page] [Verify Search field] Verifying search container highlight CSS
+[2026-05-15T11:47:18.632Z] [INFO] [Home Page] [Verify Recently Viewed] Home test setup complete
+[2026-05-15T11:47:18.637Z] [INFO] [Home Page] [Verify Recently Viewed] Navigating to home page
+[2026-05-15T11:47:21.940Z] [INFO] [Home Page] [Verify Recently Viewed] Hovering over Recently Viewed icon
+[2026-05-15T11:47:23.905Z] [INFO] [Home Page] [Verify Recently Viewed] Verifying Recently Viewed panel and items
+[2026-05-15T11:47:23.905Z] [DEBUG] [Home Page] [Verify Recently Viewed] Verifying recently viewed panel is visible
+[2026-05-15T11:47:23.932Z] [DEBUG] [Home Page] [Verify Recently Viewed] Recently viewed items count: 7
