@@ -1,0 +1,48 @@
+name: Manual Playwright Tests
+on:
+  workflow_dispatch:
+    inputs:
+      grep:
+        description: 'Feature or scenario to run (e.g. Home Page, Login)'
+        required: true
+        default: 'Home Page'
+      project:
+        description: 'Playwright project to run'
+        required: true
+        default: 'bdd'
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    env:
+      SUITE_USERNAME: ${{ secrets.SUITE_USERNAME }}
+      SUITE_PASSWORD: ${{ secrets.SUITE_PASSWORD }}
+      SUITE_URL: ${{ secrets.SUITE_URL }}
+      CI: true
+      LOG_CONSOLE: false
+      LOG_LEVEL: error
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Generate BDD specs
+      run: npx bddgen
+    - name: Run Playwright tests
+      run: npx playwright test --project=${{ github.event.inputs.project }} --grep "${{ github.event.inputs.grep }}" --reporter=html
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
