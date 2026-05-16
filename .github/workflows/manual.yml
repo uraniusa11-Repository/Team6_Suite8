@@ -2,6 +2,10 @@ name: Manual Playwright Tests
 on:
   workflow_dispatch:
     inputs:
+      branch:
+        description: 'Branch to run tests on'
+        required: true
+        default: 'Shivagami'
       grep:
         description: 'Feature or scenario to run (e.g. Home Page, Login)'
         required: true
@@ -28,6 +32,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.inputs.branch }}
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
