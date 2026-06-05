@@ -1,0 +1,17 @@
+{
+  "quote1": {
+    "quoteName": "Test Quote 1",
+    "validUntilDate": "2026-12-31",
+    "stage": "Draft"
+  },
+  "quote2": {
+    "quoteName": "Test Quote 2",
+    "validUntilDate": "2026-06-30",
+    "stage": "Draft"
+  },
+  "quoteMinimal": {
+    "quoteName": "Minimal Quote",
+    "validUntilDate": "2026-12-31",
+    "stage": "Draft"
+  }
+}
