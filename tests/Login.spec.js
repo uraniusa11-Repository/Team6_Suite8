@@ -21,8 +21,14 @@ let loginmsg;
  })
 
 
-  test('Valid credentials - user logs in successfully', async ({ page }) => {
+  test('Valid credentials - user logs in successfully', async ({ page },testInfo) => {
     await loginPage.login(appConfig.username, appConfig.password);
+    //await page.pause();
+    await loginPage.checkForAlert(testInfo);
+    //  console.log("isvisible is  ",await loginPage.credentialsError.count());
+    // console.log("is attached is  ",await loginPage.credentialsError.isattached());
+    // console.log("error message is ",await loginPage.credentialsError.textContent());
+    await page.waitForURL(url => url.href.includes('/home'));
     await expect(homePage.dashboardLink).toBeVisible();
   });
 
@@ -33,6 +39,7 @@ let loginmsg;
 
    test('Wrong username only - shows error alert', async ({ page }) => {
     await loginPage.login('wrongusername', appConfig.password);
+    console.log("error message is ",await loginPage.credentialsError.textContent());
     await expect(loginPage.credentialsError).toContainText(errorMessages.invalidCredentials);
   });
 

@@ -2,11 +2,28 @@
 import { defineConfig, devices } from '@playwright/test';
 import { appConfig } from './config/environment.config.js'
 import { defineBddConfig } from 'playwright-bdd';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const bddTestDir = defineBddConfig({
-  features: 'Features/**/*.feature',
-  steps: ['StepDefinition/**/*.js'],
+  features: ['Features/login.feature', 'Features/home.feature'],
+  steps: ['StepDefinition/login.steps.js', 'StepDefinition/Home.step.js'],
+  outputDir: '.features-gen/login',
 });
+
+// const bddTestDir1 = defineBddConfig({
+//   features: 'Features/login1.feature',
+//   steps: ['StepDefinition/login1.steps.js'],
+//   outputDir: '.features-gen/login1',
+// });
+
+// const bddTestDir2 = defineBddConfig({
+//   features: 'Features/login2.feature',
+//   steps: ['StepDefinition/login2.steps.js'],
+//   outputDir: '.features-gen/login2',
+// });
 
 /**
  * Read environment variables from file.
@@ -20,6 +37,9 @@ const bddTestDir = defineBddConfig({
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+  // Global setup/teardown approach — replaced by project-level setup/teardown below
+  // globalSetup: path.join(__dirname, 'config/global.setup.js'),
+  // globalTeardown: path.join(__dirname, 'config/global.teardown.js'),
   //testDir: './tests',
   //testDir:'bddTestDir',
   /* Run tests in files in parallel */
@@ -29,7 +49,8 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  // workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -49,11 +70,39 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
 
+    // Project-level setup — logs in once and saves auth.json before bdd tests run
+    {
+      name: 'setup',
+      testMatch: 'config/auth.setup.js',
+      use: { ...devices['Desktop Chrome'] },
+    },
+
+    // Project-level teardown — logs out once after bdd tests complete
+    {
+      name: 'teardown',
+      testMatch: 'config/auth.teardown.js',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'auth.json',
+      },
+    },
+
     {
       name: 'bdd',
       testDir: bddTestDir,
-      use: { ...devices['Desktop Chrome'] },
+      fullyParallel: false,
+      dependencies: ['setup'],   // runs after setup
+      teardown: 'teardown',      // runs teardown when bdd finishes
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'auth.json', // reuse auth state saved by setup project
+      },
     },
+    // {
+    //   name: 'login2',
+    //   testDir: bddTestDir2,
+    //   use: { ...devices['Desktop Chrome'] },
+    // },
     {
       name: 'chromium',
       testDir: './tests',

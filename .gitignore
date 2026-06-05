@@ -1,4 +1,7 @@
 
+# Generated BDD specs
+.features-gen/
+
 # Playwright
 node_modules/
 /test-results/
@@ -7,3 +10,31 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 .env
+
+# Support extras
+support/webHelpers.js
+
+# Inspect files
+inspect-home.png
+inspect-quickactions.mjs
+
+# Auth files
+auth.json
+config/global.setup.js
+config/global.teardown.js
+
+# Claude files
+.claude/
+
+# StepDefinition - keep only login.steps.js and Home.step.js
+StepDefinition/example.step.js
+StepDefinition/login.stepsv1.js
+StepDefinition/Home.stepv1.js
+StepDefinition/Home.step.BeforeAll.js
+
+# Learnings
+Learnings/
+
+# Pages - keep only LoginPage.js and HomePage.js
+Pages/LoginPagev1.js
+Pages/HomePagev1.js

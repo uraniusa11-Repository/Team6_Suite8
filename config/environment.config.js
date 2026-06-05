@@ -4,7 +4,13 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+if (!process.env.CI) {
+  const { error } = dotenv.config({ path: path.resolve(__dirname, '../.env') });
+  if (error) {
+    console.error('.env file not found or could not be loaded:', error.message);
+    process.exit(1);
+  }
+}
 
 // Safety check — if any required variable is missing, stop immediately
 const required = ['SUITE_USERNAME', 'SUITE_PASSWORD', 'SUITE_URL'];
