@@ -4,56 +4,27 @@ export class QuotesPage {
   constructor(page) {
     this.page = page;
     this.suiteFrame = page.frameLocator('iframe').last();
-
-    // =============================
-    // Navigation Locators
-    // =============================
-    // Target the parent <li> which is always visible, not the inner <span>
     this.quotesMenu = page.locator('a.top-nav-link').filter({ hasText: /Quotes/i }).first();
     this.quotesDropdownOptions = page.locator('scrm-navigation-group-menu a.dropdown-item, a.dropdown-item, .dropdown-menu a');
     this.createQuoteButton = page.locator('a.sub-nav-link[href*="/quotes/edit"]').first();
     this.viewQuotesButton = page.locator('a.sub-nav-link[href="#/quotes/index"]').first();
     this.importQuotesButton = page.locator('a.sub-nav-link[href*="/quotes/import"]').first();
     this.validUntilTextbox = page.locator('input[aria-label*="Valid"], input[placeholder*="Valid"], input[name*="valid"], input[name*="date"], input[type="text"]').nth(1);
-    //this.stageDropdown = page.locator('select[name="stage"], select[name*="stage"], select').first();
-    // =============================
-    // Page Headings
-    // =============================
-    // The entire Create Quote form lives inside an iframe
     this.quoteFrame = page.locator('iframe').contentFrame();
-
-    // "CREATE" h2 heading inside the iframe
     this.createQuotePageHeading = this.quoteFrame.getByRole('heading', { name: 'CREATE', level: 2 });
-
-    // "QUOTES" breadcrumb text outside the iframe (on the list/view pages)
     this.quotesPageHeading = page.getByText('QUOTES', { exact: true });
     this.importQuotesHeading = this.suiteFrame.getByText('Step 1: Upload Import File');
-
-    // =============================
-    // Form Locators (all inside the iframe)
-    // =============================
-    // TITLE field — first text input in the form (name field)
-   this.mainFrame = page.frameLocator('iframe').last();
-   this.quoteNameTextbox = this.mainFrame.locator('input[name="name"], input[aria-label="Name"], input[placeholder*="Name"]').first();
-   this.validUntilTextbox = this.suiteFrame.locator('input[name="date_quote_expected_closed"]');
-   this.saveButton = this.suiteFrame.getByRole('button', { name: 'Save' });
-   this.cancelButton = this.page.locator('button[title="Cancel"]');
-
-
-    // Popup (modal) — still on the main page
-   // Popup locator
-   this.popupMessage = page.locator('.modal:visible, .modal-dialog:visible, .modal-content:visible, .swal2-popup:visible, [role="dialog"]:visible, scrm-message-modal:visible').first();
-
-   this.okButton = page.getByRole('button', { name: /ok|yes|confirm|leave|discard/i });
+    this.mainFrame = page.frameLocator('iframe').last();
+    this.quoteNameTextbox = this.mainFrame.locator('input[name="name"], input[aria-label="Name"], input[placeholder*="Name"]').first();
+    this.validUntilTextbox = this.suiteFrame.locator('input[name="date_quote_expected_closed"]');
+    this.saveButton = this.suiteFrame.getByRole('button', { name: 'Save' });
+    this.cancelButton = this.page.locator('button[title="Cancel"]');
+    this.popupMessage = page.locator('.modal:visible, .modal-dialog:visible, .modal-content:visible, .swal2-popup:visible, [role="dialog"]:visible, scrm-message-modal:visible').first();
+    this.okButton = page.getByRole('button', { name: /ok|yes|confirm|leave|discard/i });
   }
 
-  // =============================
-  // Navigation Methods
-  // =============================
   async enterQuoteName(quoteName) {
-  const quoteNameInput = this.page.locator(
-    'input[name="name"], input[aria-label="Name"], input[type="text"]'
-  ).first();
+  const quoteNameInput = this.page.locator('input[name="name"], input[aria-label="Name"], input[type="text"]').first();
 
   await quoteNameInput.waitFor({ state: 'visible', timeout: 15000 });
   await quoteNameInput.fill(quoteName);
@@ -87,18 +58,12 @@ async hoverQuotesMenu() {
 async navigateToCreateQuotePage() {
   await this.page.goto('https://suite8demo.suiteondemand.com/#/quotes/edit?return_module=AOS_Quotes&return_action=DetailView');
 
-  await this.quoteNameTextbox.waitFor({
-    state: 'visible',
-    timeout: 20000
-  });
+  await this.quoteNameTextbox.waitFor({state: 'visible',timeout: 20000});
 }
  async clickCreateQuoteButton() {
   await this.clickQuotesMenu();
 
-  const createQuote = this.page.getByRole('link', {
-    name: 'Create Quote',
-    exact: true
-  });
+  const createQuote = this.page.getByRole('link', {name: 'Create Quote',exact: true});
 
   await createQuote.waitFor({ state: 'visible', timeout: 15000 });
   await createQuote.click();
@@ -106,9 +71,7 @@ async navigateToCreateQuotePage() {
   await this.page.waitForLoadState('domcontentloaded');
 }
 async clickOkButton() {
-  const okBtn = this.page
-    .getByRole('button', { name: /ok|yes|confirm|leave|discard|cancel/i })
-    .first();
+  const okBtn = this.page.getByRole('button', { name: /ok|yes|confirm|leave|discard|cancel/i }).first();
 
   await expect(okBtn).toBeVisible({ timeout: 10000 });
   await okBtn.click();
@@ -171,22 +134,16 @@ async fillQuoteDetails(data) {
 }
 
  async clickCancelButton() {
-  const cancelBtn = this.suiteFrame.locator('input[type="button"][value="Cancel"], input[title="Cancel"], a:has-text("Cancel"), button:has-text("Cancel")')
-    .filter({ hasNot: this.suiteFrame.locator('.modal') })
-    .first();
+  const cancelBtn = this.suiteFrame.locator('input[type="button"][value="Cancel"], input[title="Cancel"], a:has-text("Cancel"), button:has-text("Cancel")').filter({ hasNot: this.suiteFrame.locator('.modal') }).first();
 
   await cancelBtn.click({ force: true });
   await this.page.waitForTimeout(1000);
 }
 
  async verifyPopupDisplayed() {
-  const popupOutside = this.page.locator(
-    '.modal:visible, .modal-dialog:visible, .modal-content:visible, [role="dialog"]:visible, scrm-message-modal:visible, scrm-modal:visible'
-  ).first();
+  const popupOutside = this.page.locator('.modal:visible, .modal-dialog:visible, .modal-content:visible, [role="dialog"]:visible, scrm-message-modal:visible, scrm-modal:visible').first();
 
-  const popupInsideFrame = this.suiteFrame.locator(
-    '.modal:visible, .modal-dialog:visible, .modal-content:visible, [role="dialog"]:visible'
-  ).first();
+  const popupInsideFrame = this.suiteFrame.locator('.modal:visible, .modal-dialog:visible, .modal-content:visible, [role="dialog"]:visible').first();
 
   await expect(popupOutside.or(popupInsideFrame)).toBeVisible({ timeout: 15000 });
 }

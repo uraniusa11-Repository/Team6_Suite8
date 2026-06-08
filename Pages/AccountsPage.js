@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 export class AccountsPage {
   constructor(page) {
     this.page = page;
-    // Navigation Locators
+    
     this.accountsMenu = page.locator('a.top-nav-link').filter({ hasText: 'Accounts' });
 
     this.accountDropdownOptions = page.locator('a.sub-nav-link:visible');
@@ -20,16 +20,15 @@ export class AccountsPage {
 
     this.importPageHeading = page.locator('iframe').contentFrame().getByRole('heading', {name: 'Step 1: Upload Import File'});
 
-    // Form Locators
+    
     this.nameTextbox = page.locator('scrm-field-layout .dynamic-field-name-name input').first();
 
     this.officePhoneTextbox = page.locator('.dynamic-field-name-phone_office input');
 
     this.websiteTextbox = page.locator('.dynamic-field-name-website input');
 
-   //this.emailTextbox = page.locator('.dynamic-field-name-email1 input');
 
-   this.emailTextbox =  page.locator('scrm-varchar-edit input').nth(1);
+    this.emailTextbox =  page.locator('scrm-varchar-edit input').nth(1);
 
     this.billingAddressTextbox = page.locator('textarea').first();
 
@@ -46,7 +45,7 @@ export class AccountsPage {
     this.okButton = page.getByRole('button', {name: 'Ok'});
   }
 
-  // Navigation Methods
+  
   async clickAccountsMenu() {
     await this.accountsMenu.click();
   }
@@ -115,26 +114,16 @@ export class AccountsPage {
     console.log('Import Page Heading:', text);
   }
 
-  // Form Methods
+  
   async fillAccountDetails(data) {
+    
     await this.nameTextbox.fill(data.accountName);
-
-    await this.officePhoneTextbox.fill(
-      data.officePhone
-    );
-
+    await this.officePhoneTextbox.fill(data.officePhone);
     await this.websiteTextbox.fill(data.website);
-
-    //await this.emailTextbox.fill(data.email);
     await this.emailTextbox.waitFor({ state: 'visible' });
     await this.emailTextbox.fill(data.email);
-
-    await this.billingAddressTextbox.fill(
-      data.address
-    );
-
+    await this.billingAddressTextbox.fill(data.address);
     await this.cityTextbox.fill(data.city);
-
     await this.stateTextbox.fill(data.state);
   }
 
@@ -152,7 +141,7 @@ export class AccountsPage {
     await expect(savedAccount).toBeVisible({ timeout: 20000 });
 
     const text =
-      await savedAccount.textContent();
+    await savedAccount.textContent();
 
     console.log('Saved Account:', text);
 
@@ -171,9 +160,7 @@ export class AccountsPage {
 
     console.log('Popup Message:', text);
 
-    expect(text).toContain(
-      'You are about to leave this record'
-    );
+    expect(text).toContain('You are about to leave this record');
   }
 
   async clickOkButton() {
