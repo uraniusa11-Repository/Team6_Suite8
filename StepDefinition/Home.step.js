@@ -1,14 +1,9 @@
 import { createBdd } from 'playwright-bdd';
-import { LoginPage } from '../Pages/LoginPage.js';
 import { HomePage } from '../Pages/HomePage.js';
-import { LogoutPage } from '../Pages/LogoutPage.js';
 import { assertVisible, hover, click, navigateTo } from '../support/helpers.js';
-import { appConfig } from '../config/environment.config.js';
 import { createLogger } from '../Utils/logger.js';
 
-// Global setup (config/global.setup.js) logs in once before all tests.
-// Global teardown (config/global.teardown.js) logs out once after all tests.
-const { Given, When, Then, Before, After } = createBdd();
+const { Given, When, Then, Before } = createBdd();
 
 /** @type {HomePage} */
 let homePage;
@@ -21,25 +16,11 @@ Before(async ({ page, $testInfo }) => {
     logger.info('Home test setup complete');
 });
 
-// Per-test logout — replaced by global teardown (config/global.teardown.js)
-// After(async ({ page }) => {
-//     const logoutPage = new LogoutPage(page, homePage.profileBtn);
-//     await logoutPage.logout();
-// });
-
-// Per-test login — replaced by global setup + storageState (auth.json)
-// Given('user is logged in and on the home page', async ({ page }) => {
-//     const loginPage = new LoginPage(page);
-//     await loginPage.userlogin(appConfig.username, appConfig.password);
-// });
-
-// Auth state injected via storageState (auth.json) — just navigate to home
 Given('user is logged in and on the home page', async ({ page }) => {
     logger.info('Navigating to home page');
     await navigateTo(page, 'home');
 });
 
-// Scenario: Verify all nav links are visible in the navigation bar
 Then('User should see the following menu items in the navigation bar', async ({}, menuTable) => {
     const menuItems = menuTable.rows().map(row => row[0]);
     logger.info(`Verifying nav menu items are visible: ${menuItems.join(', ')}`);
@@ -48,9 +29,8 @@ Then('User should see the following menu items in the navigation bar', async ({}
     }
 });
 
-// Scenario: Verify nav links and icons are highlighted on hover
-When('User hovers over the following navigation elements and icons', async ({}, table) => {
-    navLinksToVerify = table.rows().map(row => row[0]);
+When('User hovers over the following navigation elements and icons', async ({}, menutableandicons) => {
+    navLinksToVerify =  menutableandicons.rows().map(row => row[0]);
     logger.info(`Queued elements to verify highlight: ${navLinksToVerify.join(', ')}`);
 });
 
@@ -61,7 +41,6 @@ Then('each navigation element should be highlighted', async () => {
     }
 });
 
-// Scenario: Verify navigation links show dropdown on hover
 When('User hovers over the following navigation links', async ({}, menuTable) => {
     navLinksToVerify = menuTable.rows().map(row => row[0]);
     logger.info(`Queued nav links to verify dropdown: ${navLinksToVerify.join(', ')}`);
@@ -75,8 +54,6 @@ Then('each navigation link should be highlighted and show a dropdown', async () 
     }
 });
 
-
-// Scenario: Verify Quick Actions
 When('User hovers over the Quick Actions icon', async () => {
     logger.info('Hovering over Quick Actions icon');
     await hover(homePage.quickCreateBtn);
@@ -91,8 +68,6 @@ Then('Quick Actions drop down should be visible with below Actions', async ({}, 
     }
 });
 
-
-// Scenario: Verify User profile icon
 When('user hovers over the User Profile icon', async () => {
     logger.info('Hovering over User Profile icon');
     await hover(homePage.profileIcon);
@@ -106,7 +81,6 @@ Then('the user profile dropdown should be visible with following <Options>', asy
     }
 });
 
-// Scenario: Verify Home Icon
 Given('HomeIcon is visible.', async () => {
     logger.info('Verifying Home icon is visible');
     await assertVisible(homePage.homeIcon);
@@ -122,7 +96,6 @@ Then('User should be redirected to the home Dashboard page', async () => {
     await assertVisible(homePage.dashboardLink);
 });
 
-// Scenario: Verify Search field
 Given('User can see the search field', async () => {
     logger.info('Verifying Search field is visible');
     await assertVisible(homePage.searchIcon);
@@ -138,11 +111,37 @@ Then('Search fieldd get highlighted', async () => {
     await homePage.verifySearchHighlighted();
 });
 
+When('User clicks on the Actions button on the dashboard', async () => {
+    logger.info('Clicking Actions button on dashboard');
+    await homePage.clickActionsBtn();
+});
 
+Then('the Actions dropdown should be visible with the following options', async ({}, actionsDropdown) => {
+    logger.info('Verifying Actions dropdown is open and options are visible');
+    const actionsDropdownoptions = actionsDropdown.rows().map(row => row[0]);
+    await homePage.verifyActionsDropdownOpen(actionsDropdownoptions);
+});
 
+When('User clicks on {string} from the Actions dropdown', async ({}, actionOption) => {
+    logger.info(`Clicking "${actionOption}" from Actions dropdown`);
+    await homePage.clickActionsDropdownOption(actionOption);
+});
 
+Then('the dialog header should display {string}', async ({}, expectedHeader) => {
+    logger.info(`Verifying dialog header: "${expectedHeader}"`);
+    await homePage.verifyActionDialogHeader(expectedHeader);
+});
 
-// Scenario: Verify Recently Viewed
+When('User clicks on the SuiteCRM Dashboard link', async () => {
+    logger.info('Clicking SuiteCRM Dashboard link');
+    await homePage.clickDashboardLink();
+});
+
+Then('dashlets should be displayed', async ({ $testInfo }) => {
+    logger.info('Verifying dashlets are visible on the dashboard');
+    await homePage.verifyDashletsVisible($testInfo);
+});
+
 When('User hovers over the Recently Viewed icon', async () => {
     logger.info('Hovering over Recently Viewed icon');
     await hover(homePage.recentlyViewedIcon);
@@ -152,4 +151,3 @@ Then('the recently viewed items should be displayed', async () => {
     logger.info('Verifying Recently Viewed panel and items');
     await homePage.verifyRecentlyViewedItemsVisible();
 });
-
