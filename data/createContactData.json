@@ -1,0 +1,32 @@
+{
+  "contact1": {
+    "salutation": "Mr.",
+    "firstName": "John",
+    "lastName": "Smith",
+    "officePhone": "1234567890",
+    "accountName": "A",
+    "mobile": "9866543210",
+    "jobTitle": "QA Engineer",
+    "department": "Testing"
+    
+  
+  },
+
+  "contact2": {
+    "salutation": "Mrs.",
+    "firstName": "Anu",
+    "lastName": "Kumar",
+    "officePhone": "9886543210",
+     "accountName": "B",
+    "mobile": "9876543210",
+    "jobTitle": "QA Engineer",
+    "department": "QA"
+   
+ 
+  },
+  "contact3" : {
+    "firstName": "Anu",
+    "lastName": " ",
+    "officePhone": "9886543210"
+  }
+}

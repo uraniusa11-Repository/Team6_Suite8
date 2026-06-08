@@ -1,0 +1,25 @@
+{
+  "meeting1": {
+    
+    "subject": "Math",
+    "startDate": 4,
+    "startHour": "11",
+    "startMinute": "15",
+    "endDate": 5,
+    "endHour": "08",
+    "endMinute": "15",
+    "status": "Held"
+  },
+
+  "meeting2": {
+      
+    "subject": "English",
+    "startDate": 5,
+    "startHour": "11",
+    "startMinute": "15",
+    "endDate": 6,
+    "endHour": "08",
+    "endMinute": "15",
+    "status": "Held"
+  }
+}
