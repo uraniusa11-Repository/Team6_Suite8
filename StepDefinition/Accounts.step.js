@@ -10,8 +10,7 @@ import { AccountsPage } from '../Pages/AccountsPage.js';
 
 import createAccountData from '../data/createAccountData.json' assert { type: 'json' };
 
-// Global setup (config/global.setup.js) logs in once before all tests.
-// Global teardown (config/global.teardown.js) logs out once after all tests.
+
 const { Given, When, Then, Before, After } = createBdd();
 
 /** @type {HomePage} */
@@ -46,9 +45,7 @@ Then('user should see below options in accounts dropdown', async ({ page }, data
 
   console.log('actual options are:', actualOptions);
 
-  expect(actualOptions).toEqual(
-    expect.arrayContaining(expectedOptions)
-  );
+  expect(actualOptions).toEqual(expect.arrayContaining(expectedOptions));
 });
 
 When('user clicks Create Account from accounts dropdown',async ({ page }) => {accountsPage = new AccountsPage(page);
@@ -90,9 +87,7 @@ Then('user should be navigated to account details page',async ({ page }) => {
 
     const data = createAccountData[currentTestData];
 
-    await accountsPage.verifySaveNavigation(
-      data.accountName
-    );
+    await accountsPage.verifySaveNavigation(data.accountName);
   }
 );
 

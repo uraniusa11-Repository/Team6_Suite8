@@ -13,13 +13,9 @@ let leadspage;
     
 Before(async ({ page }) => {
 
-    // loginpage = new LoginPage(page);
-
     await navigateTo(page, 'home');
     leadspage = new LeadsPage(page);
-
-    // await loginpage.userlogin(appConfig.username, appConfig.password);
-     
+        
 });
 
  
@@ -27,11 +23,6 @@ Before(async ({ page }) => {
 //Scenario 1: Navigate to Leads page
 When('user click on Leads', async ({page}) => {
 
-    // loginpage = new LoginPage(page);
-
-    // leadspage = new LeadsPage(page);
-
-    // await loginpage.userlogin(appConfig.username, appConfig.password);
     await leadspage.OpenLeadsDropdown();
 });
 
@@ -50,8 +41,7 @@ When('user clicks on CreateLeads', async ({page}) => {
 });
 
 Then('user should view on createLeads form', async ({}) => {
-  // await expect(page).toHaveURL(/leads\/edit/);
-  // await expect(leadspage.titleDropdownCreateconfirm).toBeVisible();
+  
   await leadspage.verifycreateTextVisible();
     
 });
@@ -60,8 +50,6 @@ Then('user should view on createLeads form', async ({}) => {
 //Scenario 3: User Save the form without form details -> Negative Use case
 
 When('user clicked on Save wihout filled the form', async ({page}) => {
-  // Step: When user clicked on Save wihout filled the form
-  // From: Features\createleads.feature:18:5
   await leadspage.OpenLeadsDropdown(); 
   await leadspage.NavigateCreateLeads();
   await leadspage.verifycreateTextVisible();
@@ -70,9 +58,6 @@ When('user clicked on Save wihout filled the form', async ({page}) => {
 });
 
 Then('Error should be thrown', async ({}) => {
-  // Step: Then Error should be thrown
-  // From: Features\createleads.feature:19:5
-
   await leadspage.SaveNegative();
 
   // print captured message
@@ -90,7 +75,7 @@ When('user fills and save the form sequentially using JSON data, one record at a
   await leadspage.verifycreateTextVisible();
     
   
- for (let i = 0; i < LeadData.length; i++) // i is defined HERE
+ for (let i = 0; i < LeadData.length; i++) 
   {   
     
 
@@ -143,26 +128,22 @@ When('user clicked on BacktoTop Button', async ({page}) => {
 });
 
 Then('Page should moved to top', async ({}) => {
-  // Step: Then Page should moved to top
-  // From: Features\createleads.feature:41:5
+  
   await expect(leadspage.CreateLeadSaveButton).toBeVisible();
 });
 
 //Scenario 6: User Cancel the form
 
 When('user clicked on Cancel', async ({page}) => {
-  // Step: When user clicked on Cancel
-  // From: Features\createleads.feature:40:5
-
+ 
       await leadspage.OpenLeadsDropdown(); 
       await leadspage.NavigateCreateLeads();
       await leadspage.Cancel();
       
 });
 
-Then('CreateLeads form should be calnceled and moved to Leads page', async ({}) => {
-  // Step: Then CreateLeads form should be calnceled and values should not saved
-  // From: Features\createleads.feature:41:5
+Then('CreateLeads form should be canceled and moved to Leads page', async ({}) => {
+  
   //page should moved to Leads page
 
   await leadspage.verifyLeadsTextVisible();
@@ -201,8 +182,7 @@ Then('Import Leads pages should be displayed with details', async ({}) => {
 When('the user downloads the import file template and Create new records only', async ({}) => {
   await leadspage.OpenLeadsDropdown();
   await leadspage.NavigateImportLeads();
-  // await leadspage.ImportLeadsconfirm();
-  await leadspage.DownloadImporttexmplate();
+  await leadspage.DownloadImporttemplate();
   await leadspage.UploadCSVfile('new');
   
 });
@@ -216,7 +196,6 @@ Then('the CSV file should be uploaded successfully with New data', async ({}) =>
 When('the user downloads the import file template and Create new records and update existing records', async ({}) => {
   await leadspage.OpenLeadsDropdown();
   await leadspage.NavigateImportLeads();
-  // await leadspage.ImportLeadsconfirm();
   await leadspage.DownloadImporttexmplate();
   await leadspage.UploadCSVfile('update');
 });
