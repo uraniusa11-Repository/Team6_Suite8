@@ -76,7 +76,7 @@ export class ContactsPage {
     }
     async uploadImportFile() {
 
-       await this.selectFileButton.setInputFiles('testData/contact.vcf');
+       await this.selectFileButton.setInputFiles('data/contact.vcf');
        await this.nextButton.click();
     }
     async confirmFileProperties() {
