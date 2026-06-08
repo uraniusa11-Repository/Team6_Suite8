@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Mr.",
+    "firstName": "Sun",
+    "lastName": "star",
+    "jobTitle": "Software Engineer",
+    "department": "IT",
+    "accountName": "ABC Corp",
+    "mobile": "1112223333",
+    "officePhone": "9998887777",
+    "website": "www.abc.com",
+    "primaryStreet": "123 Main St",
+    "primaryPostalCode": "10001",
+    "primaryCity": "New York",
+    "primaryState": "NY",
+    "primaryCountry": "USA",
+    "altStreet": "456 Avenue",
+    "altPostalCode": "10002",
+    "altCity": "Brooklyn",
+    "altState": "NY",
+    "altCountry": "USA"
+  },
+
+  {
+    "title": "Ms.",
+    "firstName": "Moon",
+    "lastName": "Smith",
+    "jobTitle": "HR Manager",
+    "department": "HR",
+    "accountName": "XYZ Ltd",
+    "mobile": "4445556666",
+    "officePhone": "3332221111",
+    "website": "www.xyz.com",
+    "primaryStreet": "789 Pine Rd",
+    "primaryPostalCode": "90001",
+    "primaryCity": "Los Angeles",
+    "primaryState": "CA",
+    "primaryCountry": "USA",
+    "altStreet": "321 xxx St",
+    "altPostalCode": "90002",
+    "altCity": "Milpitas",
+    "altState": "CA",
+    "altCountry": "USA"
+  }
+]

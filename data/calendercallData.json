@@ -1,0 +1,18 @@
+{
+  "call1": {
+    "subject": "Accounts",
+    "startHour": "09",
+    "startMinute": "15",
+    "durationHours": "4",
+    "direction": "Outbound",
+    "status": "Held"
+  },
+
+  "task1": {
+    "subject": "Accounts",
+    "startDate": 5,
+    "dueDate": 6,
+    "priority": "High",
+    "status": "In Progress"
+  }
+}
