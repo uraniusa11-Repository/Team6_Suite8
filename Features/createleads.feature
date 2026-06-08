@@ -28,7 +28,7 @@ Scenario: User clicks on BaktoTop button
 
 Scenario: User Cancel the form
     When    user clicked on Cancel 
-    Then    CreateLeads form should be calnceled and moved to Leads page
+    Then    CreateLeads form should be canceled and moved to Leads page
 
 
 Scenario: View Leads details 

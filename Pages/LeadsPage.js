@@ -17,16 +17,10 @@ export class LeadsPage{
         this.leadDropdownconfirm  = page.getByText('LEADS', { exact: true });
 
          //*****Accessing +CreateLeads page from dorpdown*****
-        this.homeleadstitle = page.locator('a').nth(1); //after accessing Leads page Lead page locator has changed
-        this.createLeadsDropdown = page.getByRole('link', { name: 'Create Lead', exact: true });
-      //  this.createLeadstitleDropdown = page.locator('a').filter({ hasText: /^Create Lead$/ });
-              //the above is not working, add any one of this
-         // this.createLeadstitleDropdown = page.locator('a[href*="leads/edit"]');
-      //   this.createLeadstitleDropdown = page.locator('span').filter({ hasText: 'Create Lead' });
-
-         // await page.getByRole('textbox', { name: 'Username' }).click();
-         // this.createLeadtitleButton = page.locator('a[href*="leads/edit"]');
-
+        this.homeleadstitle = page.locator('a').nth(1); 
+        //after accessing Leads page Lead page locator has changed
+        this.createLeadsDropdown = page.getByRole('link', { name: 'Create Lead', exact: true });      
+              //the above is not working, add any one of this        
        
          //*****Validating the page *****
         this.createleadsDropdownconfirm  = page.getByText('Create', { exact: true });
@@ -41,8 +35,7 @@ export class LeadsPage{
 
         this.CreateLeadSaveButton = page.getByRole('button', { name: 'Save' });
         //Save without fill the form
-      //   this.SaveError = page.getByText('There are validation errors,'); //not working
-      //   this.SaveError = page.locator('scrm-message-ui .message-container'); //not working
+      
          this.CRSaveError = page.locator('.invalid-feedback:visible');
 
         //Cancel the file without saving
@@ -54,8 +47,7 @@ export class LeadsPage{
 
            
     //*****Basic details*****
-        // this.List_salutationpage = page.locator('select')
-        
+                
         this.salutationDropdown = page.locator('scrm-dropdownenum-edit select').first();
         this.leadFirstname = page.locator('.dynamic-field-name-first_name input');
         this.leadLastname = page.locator('.dynamic-field-name-last_name input');
@@ -63,7 +55,6 @@ export class LeadsPage{
         this.leadDepartment = page.locator('.dynamic-field-name-department input');
         this.leadAccountname = page.locator('.dynamic-field-name-account_name input');
         
-        //*****Primary Address*****
         //*****Primary Address*****
         this.leadstreet = page.locator('.dynamic-field-name-primary_address_street textarea');
         this.leadPostalcode = page.locator('.dynamic-field-name-primary_address_postalcode input');
@@ -75,13 +66,6 @@ export class LeadsPage{
         this.leadEmailHeader = page.getByText('EMAIL ADDRESS', { exact: true }); 
         this.leadEmail = page.locator('.dynamic-field-name-email_address input[type="email"]').first();
         this.leadEmailcheckbox = page.locator('.dynamic-field-name-email_address .checkmark').first();
-
-        //adding additional EmailAddress text boxes and check boxes by clicking on + symbol
-
-        // this.EmailAddButton = page.locator('.line-item-buttons > scrm-button > .btn');
-        // this.EmailSecondText =  page.locator('div:nth-child(2) > .flex-grow-1.line-item-entry-composite > .composite > .dynamic-field.dynamic-field-mode-edit.dynamic-field-name-email-fields > div > scrm-composite-field > .align-items-start > div > .field-group-field > .dynamic-field > .d-flex > .flex-grow-1 > .form-control');
-        // this.EmailSecondCheckbox = page.locator('div:nth-child(2) > .flex-grow-1.line-item-entry-composite > .composite > .dynamic-field.dynamic-field-mode-edit.dynamic-field-name-email-fields > div > scrm-composite-field > .align-items-start > div:nth-child(3) > .field-group-field > .dynamic-field > .d-flex > .flex-grow-1 > .pb-4 > .checkbox-container > .checkmark');
-        // this.EmailDescriptionText = page.locator('textarea').nth(2);
 
         //Assigned to Combo Box, search and select name
 
@@ -138,9 +122,8 @@ export class LeadsPage{
        this.leadNewimport = page.locator('iframe').contentFrame().locator('#import_create');
        this.leadBothimport = page.locator('iframe').contentFrame().locator('#import_update');
        this.leadEmptynextDialogue = null;
-       this.leadImportnext = page.locator('iframe').contentFrame().getByRole('button', { name: 'Next >' }); // trying to use the same for 3 times when importing the file
-
-
+       this.leadImportnext = page.locator('iframe').contentFrame().getByRole('button', { name: 'Next >' });        
+       // trying to use the same for 3 times when importing the file
                
       }
 
@@ -158,12 +141,6 @@ export class LeadsPage{
 
       async NavigateCreateLeads()
       {
-         // await this.createLeadstitleDropdown.waitFor({ state: 'visible' });         
-         // await this.createLeadstitleDropdown.click(); --> this is not working         
-         // await this.titleDropdownCreateconfirm.click();
-         // await this.waitForLoadState('networkidle');
-         // await this.titleDropdown.hover();
-         // await this.createLeadstitleDropdown.waitFor({ state: 'visible' });
          await this.homeleadstitle.hover();
          await this.createLeadsDropdown.click();
          await this.page.waitForLoadState('networkidle');
@@ -265,11 +242,6 @@ export class LeadsPage{
       //First Then
     async SaveConfirmText(LeadData)
     {
-      //   await expect(this.page.locator('scrm-dynamic-label', { hasText: firstName } )).toBeVisible();
-
-      //   const enteredName = await this.leadFirstname.inputValue();
-      //   await expect(this.page.locator('scrm-dynamic-label').getByText(enteredName)).toBeVisible();
-      //  console.log('leadData:', leadData);
        console.log('firstName:', LeadData.firstName);
        console.log('lastName:', LeadData.lastName);
 
@@ -293,7 +265,6 @@ export class LeadsPage{
 
     // Step 3: Verify header contains firstName + lastName combined
     const expectedFullName = `${firstName} ${lastName}`;
-    //const expectedFullName = firstname + ' ' + lastname;
     await expect(this.leadFullNameHeader).toContainText(expectedFullName);   
 
     }
@@ -315,7 +286,6 @@ export class LeadsPage{
    async NavigateImportLeads()
       {
          await this.homeleadstitle.hover();
-         // await this.page.pause();
          await Promise.all([
          
          this.page.waitForLoadState('networkidle', { timeout: 15000 }),         
