@@ -14,6 +14,7 @@ Before(async ({ page }) => {
   loginPage = new LoginPage(page);
 });
 
+
 Given('User is on the login page', async ({ page }) => {
   await navigateTo(page, 'Login');
 });
