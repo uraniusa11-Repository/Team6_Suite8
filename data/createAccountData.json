@@ -1,0 +1,21 @@
+{
+  "account1": {
+    "accountName": "Playwright Account One",
+    "officePhone": "9876543210",
+    "website": "https://playwright.com",
+    "email": "account1@test.com",
+    "address": "Atlanta Downtown",
+    "city": "Atlanta",
+    "state": "Georgia"
+  },
+
+  "account2": {
+    "accountName": "Playwright Account Two",
+    "officePhone": "9123456780",
+    "website": "https://suitecrm.com",
+    "email": "account2@test.com",
+    "address": "Peachtree Street",
+    "city": "Atlanta",
+    "state": "Georgia"
+  }
+}
