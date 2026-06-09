@@ -6,8 +6,8 @@ export class CalendarPage {
     this.page = page;
 
     // Calendar Menu
-this.calendarMenu = page.locator('a.top-nav-link.nav-link-nongrouped',{ hasText: 'Calendar' }
-);
+//this.calendarMenu = page.locator('a.top-nav-link.nav-link-nongrouped',{ hasText: 'Calendar' });
+this.calendarMenu = page.locator('a.top-nav-link').filter({ hasText: 'Calendar' });
 //Schedule Meeting
 this.scheduleMeetingLink = page.getByRole('link', {name: 'Schedule Meeting'});
 this.frame = page.locator('iframe').contentFrame();
