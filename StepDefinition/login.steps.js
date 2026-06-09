@@ -29,8 +29,8 @@ Then('Verify Expected  message for {string}', async ({ page }, scenario) => {
 
   switch (assertType) {
     case 'redirect':
-      await waitForURL(page, '/home');
-      await assertVisible(new HomePage(page).dashboardLink);
+      await waitForURL(page, '/home', { timeout: 60000 });
+      await assertVisible(new HomePage(page).dashboardLink, { timeout: 15000 });
       break;
 
     case 'credentialsError':

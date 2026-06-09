@@ -13,7 +13,7 @@ let leadspage;
     
 Before(async ({ page }) => {
 
-    await navigateTo(page, 'home');
+    //await navigateTo(page, 'home');
     leadspage = new LeadsPage(page);
         
 });
