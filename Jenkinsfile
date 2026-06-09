@@ -11,7 +11,8 @@ pipeline {
         LOG_LEVEL     = 'error'
         SUITE_URL      = credentials('SUITE_URL')
         SUITE_USERNAME = credentials('SUITE_USERNAME')
-        SUITE_PASSWORD = credentials('SUITE_PASSWORD')
+        SUITE_PASSWORD            = credentials('SUITE_PASSWORD')
+        PLAYWRIGHT_HTML_OUTPUT_DIR = 'playwright-report'
     }
 
     options {
@@ -47,7 +48,7 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-                bat 'npx playwright test --project=setup --project=bdd --headed'
+                bat 'npx playwright test --project=setup --project=bdd --headed --reporter=html'
             }
         }
 
@@ -55,8 +56,16 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'reports/**', allowEmptyArchive: true
-            archiveArtifacts artifacts: 'logs/**',    allowEmptyArchive: true
+            publishHTML(target: [
+                allowMissing         : true,
+                alwaysLinkToLastBuild: true,
+                keepAll              : true,
+                reportDir            : 'playwright-report',
+                reportFiles          : 'index.html',
+                reportName           : 'Playwright Test Report'
+            ])
+            archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'logs/**',              allowEmptyArchive: true
         }
         success {
             echo 'All tests passed.'
