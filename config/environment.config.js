@@ -12,7 +12,7 @@ if (!process.env.CI) {
   }
 }
 
-// Safety check — if any required variable is missing, stop immediately
+
 const required = ['SUITE_USERNAME', 'SUITE_PASSWORD', 'SUITE_URL'];
 
 for (const key of required) {
@@ -22,7 +22,6 @@ for (const key of required) {
   }
 }
 
-// Export all variables in one place — no more process.env scattered everywhere
 export const appConfig = {
   username: process.env.SUITE_USERNAME,
   password: process.env.SUITE_PASSWORD,

@@ -1,5 +1,4 @@
-// Project-level Teardown — runs as a special test after the bdd project completes.
-// Uses the page fixture directly to logout.
+
 import { test as teardown } from '@playwright/test';
 
 teardown('logout', async ({ page }) => {
