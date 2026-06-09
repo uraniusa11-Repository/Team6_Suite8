@@ -29,25 +29,25 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'
+                bat 'npm ci'
             }
         }
 
         stage('Install Playwright Browsers') {
             steps {
-                sh 'npx playwright install chromium --with-deps'
+                bat 'npx playwright install chromium --with-deps'
             }
         }
 
         stage('Generate BDD Specs') {
             steps {
-                sh 'npx bddgen'
+                bat 'npx bddgen'
             }
         }
 
         stage('Run Playwright Tests') {
             steps {
-                sh 'npx playwright test --project=setup --project=bdd'
+                bat 'npx playwright test --project=setup --project=bdd'
             }
         }
 
