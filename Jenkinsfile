@@ -47,7 +47,7 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-                bat 'npx playwright test --project=setup --project=bdd'
+                bat 'npx playwright test --project=setup --project=bdd --headed'
             }
         }
 
