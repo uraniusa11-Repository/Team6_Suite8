@@ -18,15 +18,15 @@ const customFormat = printf(({ level, message, timestamp, featureName, scenarioT
   return `[${timestamp}] [${level.toUpperCase()}] [${featureName}] [${scenarioTitle}] ${message}`;
 });
 
-const transports = [
-    new winston.transports.File({
-      filename: path.join(logDir, 'all.log'),
-    }),
-    new winston.transports.File({
-      filename: path.join(logDir, 'errors.log'),
-      level: 'error',
-    }),
-  ];
+// const transports = [
+//     new winston.transports.File({
+//       filename: path.join(logDir, 'all.log'),
+//     }),
+//     new winston.transports.File({
+//       filename: path.join(logDir, 'errors.log'),
+//       level: 'error',
+//     }),
+//   ];
 
 export const createLogger = (testInfo) => {
   const featureName   = testInfo.titlePath[1];
