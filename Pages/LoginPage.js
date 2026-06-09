@@ -1,6 +1,4 @@
 import { expect } from '@playwright/test';
-import { HomePage } from '../Pages/HomePage.js';
-import { navigateTo } from '../support/helpers.js';
 export class LoginPage {
 
     constructor(page) {
@@ -18,14 +16,5 @@ export class LoginPage {
         await this.passwordTextbox.fill(password);
         await this.loginButton.waitFor({ state: 'visible', timeout: 30000 })
         await this.loginButton.click({ timeout: 15000 })
-        //await this.loginButton.click();
-    }
-
-    async userlogin(username, password)
-    {
-    await navigateTo(this.page, 'Login');
-    await this.login(username, password);
-    await this.page.waitForURL(url => url.href.includes('/home'));
-    await expect(new HomePage(this.page).dashboardLink).toBeVisible();
     }
 }

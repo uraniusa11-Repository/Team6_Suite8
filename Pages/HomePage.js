@@ -31,6 +31,7 @@ export class HomePage {
         this.actionsDropdownAddTab = this.iframeContent.getByRole('button', { name: 'Add Tab' });
         this.actionsDropdownEditTabs = this.iframeContent.getByRole('button', { name: 'Edit Tabs' });
         this.actionDialogHeader = this.iframeContent.getByRole('dialog').locator('h4.modal-title');
+        this.actionDialogClose = this.iframeContent.getByRole('dialog').getByLabel('Close');
     }
 
 
@@ -89,24 +90,23 @@ export class HomePage {
 
     async clickActionsDropdownOption(actionsDropdown) {
         this.logger?.debug('Opening Actions dropdown');
-        await this.actionsBtn.click();
+        await this.clickActionsBtn();
+        await assertVisible(this.actionsDropdownItem(actionsDropdown));
         this.logger?.debug(`Clicking Actions dropdown option: ${actionsDropdown}`);
-        const optionMap = {
-            'Add Dashlets': this.actionsDropdownAddDashlets,
-            'Add Tab':      this.actionsDropdownAddTab,
-            'Edit Tabs':    this.actionsDropdownEditTabs,
-        };1
-        await optionMap[actionsDropdown].click();
+        await this.actionsDropdownItem(actionsDropdown).click();
     }
 
     async verifyActionDialogHeader(expectedHeader) {
         this.logger?.debug(`Verifying dialog header: "${expectedHeader}"`);
-        await assertVisible(this.actionDialogHeader);
-        await expect(this.actionDialogHeader).toHaveText(expectedHeader);
+        await assertVisible(this.actionDialogHeader, { timeout: 10000 });
+        await this.page.waitForTimeout(1500);
+        await expect(this.actionDialogHeader).toHaveText(expectedHeader, { timeout: 10000 });
+        await this.actionDialogClose.click();
     }
 
     async clickActionsBtn() {
         this.logger?.debug('Clicking Actions button');
+        await this.actionsBtn.waitFor({ state: 'visible' });
         await this.actionsBtn.click();
     }
 

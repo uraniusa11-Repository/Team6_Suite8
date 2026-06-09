@@ -36,8 +36,9 @@ export class DashletPage {
     async navigateToDashboard() {
         this.logger?.debug('Navigating to home page');
         await navigateTo(this.page, 'home');
-        this.logger?.debug('Clicking SuiteCRM Dashboard link');
-        await this.homePage.clickDashboardLink();
+        // await this.homePage.homeIcon.click();
+        // await this.homePage.dashboardLink.waitFor({ state: 'visible', timeout: 15000 });
+        // await this.homePage.clickDashboardLink();
     }
 
     async addDashlet(name) {
@@ -45,6 +46,7 @@ export class DashletPage {
         await this.homePage.clickActionsDropdownOption('Add Dashlets');
         await this.addDashletsModal.waitFor({ state: 'visible' });
         this.logger?.debug(`Selecting "${name}" dashlet`);
+        await this.dashletLink(name).waitFor({ state: 'visible', timeout: 15000 });
         await this.dashletLink(name).click();
         await this.addDashletsModal.getByLabel('Close').click();
         await this.addDashletsModal.waitFor({ state: 'hidden' });
@@ -103,14 +105,16 @@ export class DashletPage {
 
     async clickNextPage(name) {
         this.logger?.debug(`Clicking next page on "${name}" dashlet`);
+        const before = await this.paginationCount(name).textContent();
         await this.nextPageBtn(name).click();
-        await this.page.waitForTimeout(1000);
+        await expect(this.paginationCount(name)).not.toHaveText(before, { timeout: 15000 });
     }
 
     async clickPrevPage(name) {
         this.logger?.debug(`Clicking previous page on "${name}" dashlet`);
+        const before = await this.paginationCount(name).textContent();
         await this.prevPageBtn(name).click();
-        await this.page.waitForTimeout(1000);
+        await expect(this.paginationCount(name)).not.toHaveText(before, { timeout: 15000 });
     }
 
     async getCurrentPageStart(name) {
@@ -147,7 +151,7 @@ export class DashletPage {
             await expect(heading).toHaveText(new RegExp(subject, 'i'));
             this.logger?.debug(`Record page verified: CALLS header and subject "${subject}" matched`);
 
-            await this.navigateToDashboard();
+            await this.homePage.homeIcon.click();
             await this.paginationCount(dashletName).waitFor({ state: 'visible', timeout: 10000 });
         }
     }
@@ -159,7 +163,8 @@ export class DashletPage {
             await this.editBtns(dashletName).nth(i).click();
             await this.page.waitForURL(/calls\/edit\//);
             this.logger?.debug(`Edit page opened for row ${i + 1} of ${count}`);
-            await this.navigateToDashboard();
+            await this.homePage.homeIcon.click();
+            await this.paginationCount(dashletName).waitFor({ state: 'visible', timeout: 10000 });
         }
     }
 }
