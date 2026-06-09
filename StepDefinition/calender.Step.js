@@ -20,6 +20,7 @@ let navLinksToVerify = [];
 Before(async ({ page, $testInfo }) => {
     logger = createLogger($testInfo);
     homePage = new HomePage(page, logger);
+     calendarPage = new CalendarPage(page);
     logger.info('Home test setup complete');
 });
 
@@ -31,7 +32,7 @@ Given('user is on Home page', async ({ page }) => {
 
 When('user hovers over Calendar menu and clicks Schedule Meeting',async ({ page }) => {
 
-    calendarPage = new CalendarPage(page);
+   
     await calendarPage.navigateToScheduleMeeting();
  
 });
@@ -43,11 +44,7 @@ Then('Meeting Create page should be displayed',async () => {
 
 Given('user is on Schedule Meeting page',async ({ page }) => {
 
-    
-         await page.goto('/#/Login')
-         loginpage = new LoginPage(page)
-         await loginpage.login(process.env.SUITE_USERNAME,process.env.SUITE_PASSWORD)
-         calendarPage = new CalendarPage(page);
+        
          await calendarPage.navigateToScheduleMeeting();
 });
 
@@ -62,7 +59,7 @@ When('user enters meeting details using {string} and clicks Save button',async (
 
 Then('created meeting subject should be displayed correctly',async ({ page }) => {
 
-    calendarPage = new CalendarPage(page);
+  
     const data = calendarMeetingData[currentTestData];
     await calendarPage.verifyCreatedMeeting(data.subject);
     
@@ -70,7 +67,7 @@ Then('created meeting subject should be displayed correctly',async ({ page }) =>
 
 When('user hovers over Calendar menu and clicks Schedule Call',async ({ page }) => {
 
-    calendarPage = new CalendarPage(page);
+ 
     await calendarPage.navigateToScheduleCall();
 });
 
@@ -81,10 +78,7 @@ Then('Call Create page should be displayed',async () => {
 
 Given('user is on Schedule Call page',async ({ page }) => {
   
-    await page.goto('/#/Login')
-    loginpage = new LoginPage(page)
-    await loginpage.login(process.env.SUITE_USERNAME,process.env.SUITE_PASSWORD)
-    calendarPage = new CalendarPage(page);
+   
     await calendarPage.navigateToScheduleCall();
 });
 
@@ -103,7 +97,7 @@ Then('created call subject should be displayed correctly',async () => {
 
 When('user hovers over Calendar menu and clicks Create Task',async ({ page }) => {
 
-    calendarPage = new CalendarPage(page);
+  
     await calendarPage.navigateToCreateTask();
 });
 
@@ -114,10 +108,8 @@ Then('Task Create page should be displayed',async () => {
 
 Given('user is on Create Task page',async ({ page }) => {
   
-    await page.goto('/#/Login')
-    loginpage = new LoginPage(page)
-    await loginpage.login(process.env.SUITE_USERNAME,process.env.SUITE_PASSWORD)
-    calendarPage = new CalendarPage(page);
+   
+   
     await calendarPage.navigateToCreateTask();
 });
 
@@ -136,7 +128,7 @@ Then('created task subject should be displayed correctly',async () => {
 
 When('user hovers over Calendar menu and clicks Today',async ({ page }) => {
 
-    calendarPage = new CalendarPage(page);
+  
     await calendarPage.navigateToToday();
 });
 

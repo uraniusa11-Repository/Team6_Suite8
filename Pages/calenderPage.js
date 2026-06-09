@@ -6,8 +6,8 @@ export class CalendarPage {
     this.page = page;
 
     // Calendar Menu
-this.calendarMenu = page.locator('a.top-nav-link.nav-link-nongrouped',{ hasText: 'Calendar' }
-);
+//this.calendarMenu = page.locator('a.top-nav-link.nav-link-nongrouped',{ hasText: 'Calendar' });
+this.calendarMenu = page.locator('a.top-nav-link').filter({ hasText: 'Calendar' });
 //Schedule Meeting
 this.scheduleMeetingLink = page.getByRole('link', {name: 'Schedule Meeting'});
 this.frame = page.locator('iframe').contentFrame();
@@ -80,13 +80,12 @@ this.taskStatusDropdown = page.locator('scrm-dropdownenum-edit').filter({ hasTex
 
 //Methods
 //Schedule meeting methods
+
    async navigateToScheduleMeeting() {
 
     await this.calendarMenu.hover();
-    console.log(await this.calendarMenu.count());
     await this.scheduleMeetingLink.waitFor({state: 'visible'});
     await this.scheduleMeetingLink.click();
-    console.log("URL After Click:", this.page.url());
     await this.page.waitForTimeout(3000);
    
 }
@@ -95,7 +94,7 @@ async verifyMeetingPage() {
       await this.page.waitForLoadState('networkidle');
     await expect(this.meetingsHeading).toContainText('Meetings');
     const text = await this.meetingsHeading.textContent();
-    console.log("Meeting Heading:", text);
+  
 }
 
 getStartDate(day) {
@@ -129,8 +128,8 @@ async verifyCreatedMeeting(expectedSubject) {
     const meetingHeading = this.frame.getByRole('heading', {name: expectedSubject });
     await expect(meetingHeading).toBeVisible();
     const text = await meetingHeading.textContent();
-    console.log('Created Meeting:',text);
-}
+  
+    }
 
    //Navigation Methods
     async navigateToScheduleCall() {
@@ -190,8 +189,6 @@ async verifyCreatedMeeting(expectedSubject) {
     async verifyCreatedCall(subject) {
 
           const callHeadingNavText = this.frame.getByRole('heading').first();
-          console.log('Created Call:',await callHeadingNavText.textContent());
-          console.log("Print subject",subject); 
           await expect(callHeadingNavText).toContainText(subject);
     
     }
@@ -224,7 +221,7 @@ getTaskDueDate(day) {
 
         await expect(this.createdTaskHeading).toContainText(subject);
         const text = await this.createdTaskHeading.textContent();
-        console.log('Created Task:', text);
+      
     }
 }
 

@@ -11,7 +11,7 @@ export class LeadsPage{
 
 
         //*****Accessing Lead page from dorpdown*****
-        this.leadDropdown = page.locator('a').filter({ hasText: /^Leads$/ });
+        this.leadDropdown = page.locator('.top-nav-link').filter({ hasText: /^Leads$/ });
 
         //*****Validating the page *****
         this.leadDropdownconfirm  = page.getByText('LEADS', { exact: true });
@@ -20,7 +20,7 @@ export class LeadsPage{
         this.homeleadstitle = page.locator('a').nth(1); 
         //after accessing Leads page Lead page locator has changed
         this.createLeadsDropdown = page.getByRole('link', { name: 'Create Lead', exact: true });      
-              //the above is not working, add any one of this        
+                     
        
          //*****Validating the page *****
         this.createleadsDropdownconfirm  = page.getByText('Create', { exact: true });
@@ -275,7 +275,7 @@ export class LeadsPage{
          await this.homeleadstitle.hover();
          await Promise.all([
          
-         this.page.waitForLoadState('networkidle', { timeout: 15000 }),
+         this.page.waitForLoadState('networkidle', { timeout: 20000 }),
          this.leadView.click()]);
 
          //after clik on CreateLeads from dropdown move cursor away from dropdown

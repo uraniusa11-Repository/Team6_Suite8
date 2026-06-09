@@ -76,7 +76,7 @@ export class ContactsPage {
     }
     async uploadImportFile() {
 
-       await this.selectFileButton.setInputFiles('testData/contact.vcf');
+       await this.selectFileButton.setInputFiles('data/contact.vcf');
        await this.nextButton.click();
     }
     async confirmFileProperties() {
@@ -115,7 +115,7 @@ async clickCreateContactFromVcard() {
 
     await this.page.waitForURL(/importvcard/,{ timeout: 30000 });
 
-    console.log(await this.page.url());
+   
 }
 
 async verifyImportVcardPage() {
@@ -125,7 +125,7 @@ async verifyImportVcardPage() {
 
         const text = await this.createVcPageHeading.textContent();
 
-        console.log("Page Heading:", text);
+        
     
    
 }
@@ -143,10 +143,7 @@ async verifyImportedContact() {
   
     await expect(this.importedContactName).toBeVisible({timeout: 120000});
    const importedName = (await this.importedContactName.textContent())?.trim();
-
-    console.log('Imported Contact:',importedName);
-
-    expect(importedName.length).toBeGreaterThan(0);
+   expect(importedName.length).toBeGreaterThan(0);
 }
   // Navigation Methods
   async clickContactsMenu() {
@@ -167,9 +164,7 @@ async verifyImportedContact() {
             option.replace(/\s+/g, ' ').trim()
         );
 
-    console.log('Contacts Dropdown Options:');
-
-    cleanedOptions.forEach(option => {
+     cleanedOptions.forEach(option => {
     
     });
      return cleanedOptions;
@@ -185,7 +180,7 @@ async verifyImportedContact() {
     await this.page.waitForLoadState('networkidle');
       await expect(this.createPageHeading).toContainText('Create');
       const text = await this.createPageHeading.textContent();
-        console.log("Page Heading:", text);
+       
     }
 
  async hoverContactsMenu() {
@@ -198,8 +193,7 @@ async verifyImportedContact() {
    
  
       const errors = await this.page.locator('.invalid-feedback').allTextContents();
-      console.log(errors);
-      await this.saveButton.scrollIntoViewIfNeeded();
+       await this.saveButton.scrollIntoViewIfNeeded();
        await this.saveButton.click();
       await this.page.waitForURL(/contacts\/record/,{ timeout: 30000 });
    
@@ -210,7 +204,6 @@ async verifyImportedContact() {
       const savedContact = this.page.locator('.record-view-name span.dynamic-label').last();
           await expect(savedContact).toBeVisible({ timeout: 20000 });
       const text = await savedContact.textContent();
-        console.log("Saved Contact:", text);
         expect(text).toContain(firstName);
         expect(text).toContain(lastName);
 
@@ -223,7 +216,6 @@ async verifyPopupDisplayed() {
 
     await expect(this.popupMessage).toBeVisible();
     const text = await this.popupMessage.textContent();
-    console.log("Popup Message:",text);
     expect(text).toContain('You are about to leave this record');
 }
 
@@ -239,7 +231,7 @@ async verifyPopupDisplayed() {
 
         await expect(this.cancelClickPageNavigation).toBeVisible();
          const text = await this.cancelClickPageNavigation.textContent();
-        console.log("Navigation Text:", text);
+       
     }
 
 
@@ -279,9 +271,9 @@ async verifyPopupDisplayed() {
 //account
 
 await this.accountDropdownArrow.click();
-console.log("Dropdown panel count:",
-    await this.page.locator('.p-dropdown-panel').count()
-);
+// console.log("Dropdown panel count:",
+//     await this.page.locator('.p-dropdown-panel').count()
+// );
 await expect(this.page.locator('input.p-dropdown-filter')).toBeVisible({ timeout: 10000 });
 
 await this.page.locator('input.p-dropdown-filter').fill(data.accountName);
@@ -306,7 +298,6 @@ async verifyLastNameValidationMessage() {
 
     await expect(this.lastNameValidationMessage).toBeVisible();
     const message = await this.lastNameValidationMessage.textContent();
-    console.log('Validation Message:', message);
     expect(message.trim()).toBe('Missing required field: Last Name');
 }
 
@@ -320,7 +311,7 @@ async verifyContactsPage() {
 
     await expect(this.contactsHeading).toBeVisible();
     const text = await this.contactsHeading.textContent();
-    console.log('Contacts Heading:',text);
+  
 }
   
 

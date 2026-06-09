@@ -196,7 +196,7 @@ Then('the CSV file should be uploaded successfully with New data', async ({}) =>
 When('the user downloads the import file template and Create new records and update existing records', async ({}) => {
   await leadspage.OpenLeadsDropdown();
   await leadspage.NavigateImportLeads();
-  await leadspage.DownloadImporttexmplate();
+  await leadspage.DownloadImporttemplate();
   await leadspage.UploadCSVfile('update');
 });
 
