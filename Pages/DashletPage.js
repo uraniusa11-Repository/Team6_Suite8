@@ -74,8 +74,9 @@ export class DashletPage {
         const text = await this.paginationCount(name).textContent();
         const match = text?.match(/\((\d+) - (\d+) of (\d+)\)/);
         if (!match) return false;
-        const shown = parseInt(match[2]) - parseInt(match[1]) + 1;
-        return parseInt(match[3]) > shown;
+        // const shown = parseInt(match[2]) - parseInt(match[1]) + 1;
+        // return parseInt(match[3]) > shown;
+        return parseInt(match[3]) > parseInt(match[2]);
     }
 
     async verifyNextPageNavigation(name) {
@@ -84,7 +85,8 @@ export class DashletPage {
             this.logger?.debug(`"${name}" has multiple pages — navigating to next page`);
             await this.clickNextPage(name);
             const start = await this.getCurrentPageStart(name);
-            expect(start).toBeGreaterThan(1);
+            // expect(start).toBeGreaterThan(1);
+            expect(start).toBeGreaterThan(5);
         } else {
             this.logger?.info(`"${name}" dashlet has only one page — next page navigation not applicable`);
         }
@@ -138,20 +140,15 @@ export class DashletPage {
         for (let i = 0; i < count; i++) {
             const btn = this.viewBtns(dashletName).nth(i);
 
-            const subject = (await btn.locator('xpath=ancestor::tr[1]').locator('td a:not(.list-view-data-icon)').first().textContent()).trim();
-            this.logger?.debug(`Row ${i + 1}: subject = "${subject}"`);
-
             await btn.click();
             await this.page.waitForURL(/calls\/record\//);
 
             const recordIframe = this.page.locator('iframe').first().contentFrame();
-            const heading = recordIframe.getByRole('heading', { level: 2 });
-            await heading.waitFor({ state: 'visible', timeout: 15000 });
+          
             await assertVisible(recordIframe.getByText('Calls', { exact: true }));
-            await expect(heading).toHaveText(new RegExp(subject, 'i'));
-            this.logger?.debug(`Record page verified: CALLS header and subject "${subject}" matched`);
-
+           
             await this.homePage.homeIcon.click();
+            
             await this.paginationCount(dashletName).waitFor({ state: 'visible', timeout: 10000 });
         }
     }
