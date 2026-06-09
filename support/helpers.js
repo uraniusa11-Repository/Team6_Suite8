@@ -6,8 +6,10 @@ import { expect } from '@playwright/test';
  */
 export const navigateTo = async (page, relativePath) => {
   await page.goto(`./#/${relativePath}`);
+  await page.locator('#overlay-spinner').waitFor({ state: 'hidden' });
+  await page.locator('.app-loading').waitFor({ state: 'hidden' });
+  await page.waitForLoadState('networkidle', { timeout: 60000 });
   await page.waitForURL(url => url.href.includes(`/${relativePath}`));
-  await page.waitForLoadState("networkidle");
 };
 
 /**
@@ -61,9 +63,10 @@ export const assertVisible = async (locator, options = {}) => {
 /**
  * @param {import('@playwright/test').Page} page
  * @param {string} urlPath
+ * @param {{ timeout?: number }} [options]
  */
-export const waitForURL = async (page, urlPath) => {
-    await page.waitForURL(url => url.href.includes(urlPath));
+export const waitForURL = async (page, urlPath, options = {}) => {
+    await page.waitForURL(url => url.href.includes(urlPath), options);
 };
 
 /**
