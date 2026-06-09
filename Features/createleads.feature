@@ -1,5 +1,8 @@
 Feature: Leads page Registration form
 
+Background:
+    Given user is on home page
+
 
 Scenario: User accessing Leads page
     
