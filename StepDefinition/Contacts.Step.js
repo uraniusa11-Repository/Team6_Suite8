@@ -21,6 +21,7 @@ let navLinksToVerify = [];
 Before(async ({ page, $testInfo }) => {
     logger = createLogger($testInfo);
     homePage = new HomePage(page, logger);
+    contactsPage = new ContactsPage(page);
     logger.info('Home test setup complete');
 });
 
@@ -32,7 +33,7 @@ Given('user is on contact home page', async ({ page }) => {
 
 
 When('user clicks on contacts menu', async ({page}) => {
-     contactsPage = new ContactsPage(page);
+     
     await contactsPage.clickContactsMenu();
 });
 
@@ -43,7 +44,7 @@ Then('user should see below options in contacts dropdown', async ({page}, dataTa
 });
 
 When('user clicks Create Contact from contacts dropdown', async ({page}) => {
-     contactsPage = new ContactsPage(page);
+    
      await contactsPage.hoverContactsMenu();
      await contactsPage.clickCreateContact();
 
@@ -62,12 +63,12 @@ When('user fills contact details using {string} and user clicks cancel button', 
 
 });
 
-Then('warning popup should be displayed', async ({page}) => {
+Then('contact warning popup should be displayed', async ({page}) => {
      await contactsPage.clickOkButton();
 });
 
-Given('warning popup is displayed', async ({page}) => {
-  contactsPage = new ContactsPage(page);
+Given('contact warning popup is displayed', async ({page}) => {
+  
     await contactsPage.hoverContactsMenu();
     await contactsPage.clickCreateContact();
     await contactsPage.fillContactDetails();
@@ -89,14 +90,14 @@ When('user fills contact details using {string}, clicks cancel button, and click
 
 
 Then('user should navigate away from create contact page', async ({page}) => {
- contactsPage = new ContactsPage(page);
+
  await contactsPage.verifyCancelNavigation();
 });
 
 
 Given('user is on create contact page', async ({page}) => {
   
-    contactsPage = new ContactsPage(page);
+   
     await contactsPage.hoverContactsMenu();
     await contactsPage.clickCreateContact();
     
@@ -113,14 +114,14 @@ When('user fills contact details using {string} and user clicks save button', as
 });
 
 Then('user should be navigated to contact details page', async ({ page }) => {
-    contactsPage = new ContactsPage(page);
-    const data = createContactData[currentTestData];
+    
+    // const data = createContactData[currentTestData];
     await contactsPage.verifySaveNavigation(data.firstName,data.lastName);
 
   });
 
 When('user clicks Create Contact from vCard from contacts dropdown', async ({page}) => {
-  contactsPage = new ContactsPage(page);
+
   contactsPage.clickCreateContactFromVcard();
 });
 
@@ -129,30 +130,30 @@ Then('user should be navigated to corresponding vcard page', async ({page}) => {
 });
 
 Given('user is on import vcard page', async ({page}) => {
-     contactsPage = new ContactsPage(page);
+    
     await contactsPage.hoverContactsMenu();
     await contactsPage.clickCreateContactFromVcard();
 });
 
 When('user uploads vcard file', async ({page}) => {
-      contactsPage = new ContactsPage(page);
+      
       contactsPage.uploadVcardFileMethod();
 });
 
 Then('contact should be imported successfully', async ({page}) => {
-    contactsPage = new ContactsPage(page);
+    
     await contactsPage.verifyImportedContact();
 });
 
 Given('user is on import contacts page',async ({ page }) => {
 
-    contactsPage = new ContactsPage(page);
+  
     await contactsPage.clickImportContacts();
 });
 
 When('user imports contact file',async ({ page }) => {
 
-    contactsPage = new ContactsPage(page);
+   
     await contactsPage.uploadImportFile();
     await contactsPage.confirmFileProperties();
     await contactsPage.mapImportFields();
@@ -160,14 +161,14 @@ When('user imports contact file',async ({ page }) => {
 });
 Then('contacts should be imported successfully',async ({ page }) => {
 
-    contactsPage = new ContactsPage(page);
+   
     await contactsPage.verifyImportResults();
 });
 
 
 When('user enters contact details {string} without Last Name', async ({ page },testData) => {
 
-    contactsPage = new ContactsPage(page);
+   
    const data = createContactData[testData];
     await contactsPage.enterContactWithoutLastName(data);
       
@@ -175,13 +176,13 @@ When('user enters contact details {string} without Last Name', async ({ page },t
 
 Then('missing required message should be displayed', async ({ page }) => {
 
-    contactsPage = new ContactsPage(page);
+
     await contactsPage.verifyLastNameValidationMessage();
 });
 
 When('user hovers over Contacts menu and clicks View Contacts',async ({ page }) => {
 
-    contactsPage = new ContactsPage(page);
+    
     await contactsPage.navigateToViewContacts();
 });
 
