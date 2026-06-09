@@ -43,10 +43,6 @@ Then('Meeting Create page should be displayed',async () => {
 
 Given('user is on Schedule Meeting page',async ({ page }) => {
 
-    
-         await page.goto('/#/Login')
-         loginpage = new LoginPage(page)
-         await loginpage.login(process.env.SUITE_USERNAME,process.env.SUITE_PASSWORD)
          calendarPage = new CalendarPage(page);
          await calendarPage.navigateToScheduleMeeting();
 });
@@ -81,9 +77,6 @@ Then('Call Create page should be displayed',async () => {
 
 Given('user is on Schedule Call page',async ({ page }) => {
   
-    await page.goto('/#/Login')
-    loginpage = new LoginPage(page)
-    await loginpage.login(process.env.SUITE_USERNAME,process.env.SUITE_PASSWORD)
     calendarPage = new CalendarPage(page);
     await calendarPage.navigateToScheduleCall();
 });
@@ -114,9 +107,7 @@ Then('Task Create page should be displayed',async () => {
 
 Given('user is on Create Task page',async ({ page }) => {
   
-    await page.goto('/#/Login')
-    loginpage = new LoginPage(page)
-    await loginpage.login(process.env.SUITE_USERNAME,process.env.SUITE_PASSWORD)
+   
     calendarPage = new CalendarPage(page);
     await calendarPage.navigateToCreateTask();
 });
