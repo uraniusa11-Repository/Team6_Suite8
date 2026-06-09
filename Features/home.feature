@@ -97,7 +97,7 @@ Feature: Home Page
     When User clicks on the SuiteCRM Dashboard link
     Then dashlets should be displayed
 
-  Scenario Outline: Verify "<Action Option>" from Actions dropdown opens the respective dialog
+  Scenario Outline: Verify <Action Option> dropdown option opens the <Expected Header> dialog
     When User clicks on "<Action Option>" from the Actions dropdown
     Then the dialog header should display "<Expected Header>"
 

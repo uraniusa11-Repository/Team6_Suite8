@@ -1,3 +1,4 @@
+@login
 Feature: Login
 
   Background:
@@ -8,9 +9,7 @@ Feature: Login
     Then Verify Expected  message for "<Scenario>"
 
     Examples:
-    
-
-    
+        
       | Scenario                                                    |
       | Valid credentials - user logs in successfully               |
       | Invalid credentials - shows error alert                     |
