@@ -41,7 +41,7 @@ Scenario Outline: Verify validation message when Last Name is left blank
    Scenario Outline: Verify cancel popup message
     Given user is on create contact page
     When  user fills contact details using "<testData>" and user clicks cancel button
-    Then warning popup should be displayed
+    Then contact warning popup should be displayed
   Examples:
 
       | testData |
