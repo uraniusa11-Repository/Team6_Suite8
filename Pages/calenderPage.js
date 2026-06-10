@@ -42,6 +42,8 @@ this.meetingsHeading = this.frame.getByText('Meetings');
   this.callstatusDropdown = this.frame.locator('#status');
   this.callsaveButton = this.frame.getByRole('button',{name:'Save',exact:true});
 //  this.createdCallHeading = this.frame.getByRole('heading',{name:'Accounts'});
+this.createdCallHeading =
+    page.locator('h2.module-title-text');
   
 // Task
   this.createTaskLink = page.getByRole('link', {name: 'Create Task'});
@@ -188,9 +190,9 @@ async verifyCreatedMeeting(expectedSubject) {
 
     async verifyCreatedCall(subject) {
 
-          const callHeadingNavText = this.frame.getByRole('heading').first();
-          await expect(callHeadingNavText).toContainText(subject);
-    
+           const callHeadingNavText = this.frame.getByRole('heading').first();
+           await expect(callHeadingNavText).toContainText(subject);
+       
     }
 
   
