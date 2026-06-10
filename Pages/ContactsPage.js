@@ -98,9 +98,7 @@ export class ContactsPage {
   }
   async verifyImportResults() {
 
-   await expect(
-    this.importResultsHeading
-).toBeVisible({ timeout: 30000 });
+   await expect(this.importResultsHeading).toBeVisible({ timeout: 30000 });
 }
 
 
@@ -160,14 +158,8 @@ async verifyImportedContact() {
 
     const options = await this.contactDropdownOptions.allTextContents();
         const cleanedOptions =
-        options.map(option =>
-            option.replace(/\s+/g, ' ').trim()
-        );
-
-     cleanedOptions.forEach(option => {
-    
-    });
-     return cleanedOptions;
+        options.map(option =>option.replace(/\s+/g, ' ').trim());
+        return cleanedOptions;
   }
 
   async clickCreateContact() {
@@ -271,9 +263,7 @@ async verifyPopupDisplayed() {
 //account
 
 await this.accountDropdownArrow.click();
-// console.log("Dropdown panel count:",
-//     await this.page.locator('.p-dropdown-panel').count()
-// );
+
 await expect(this.page.locator('input.p-dropdown-filter')).toBeVisible({ timeout: 10000 });
 
 await this.page.locator('input.p-dropdown-filter').fill(data.accountName);
