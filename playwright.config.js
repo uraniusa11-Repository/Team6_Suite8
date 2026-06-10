@@ -5,6 +5,8 @@ import { defineBddConfig } from 'playwright-bdd';
 import { fileURLToPath } from 'url';
 import path from 'path';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
 const bddTestDir = defineBddConfig({
   features: [
     'Features/login.feature',
@@ -49,7 +51,13 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  //reporter: 'html',
+  reporter: [
+    ['html', { 
+      outputFolder: `reports/html-report-${timestamp}`,
+      open: 'never'   // don't auto-open browser after run
+    }]
+  ],
 
   use: {
   
@@ -72,6 +80,8 @@ export default defineConfig({
     {
       name: 'teardown',
       testMatch: 'config/auth.teardown.js',
+      dependencies: ['bdd'],
+      //dependencies: ['bdd', 'bdd-firefox', 'bdd-Webkit'],
       use: {
         ...devices['Desktop Chrome'],
         storageState: 'auth.json',
@@ -90,12 +100,36 @@ export default defineConfig({
       testIgnore: '**/login.feature.spec.js',
       fullyParallel: false,
       dependencies: ['setup'],   
-      teardown: 'teardown',      
+      //teardown: 'teardown',      
       use: {
         ...devices['Desktop Chrome'],
         storageState: 'auth.json', 
       },
     },
+
+    // {
+    //   name: 'bdd-Webkit',
+    //   testDir: bddTestDir,
+    //   testIgnore: '**/login.feature.spec.js',
+    //   fullyParallel: false,
+    //   dependencies: ['setup'],        
+    //   use: {
+    //     ...devices['Desktop Safari'],
+    //     storageState: 'auth.json', 
+    //   },
+    // },
+
+    // {
+    //   name: 'bdd-firefox',
+    //   testDir: bddTestDir,
+    //   testIgnore: '**/login.feature.spec.js',
+    //   dependencies: ['setup'],   
+    //   //teardown: 'teardown',      
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //     storageState: 'auth.json', 
+    //   },
+    // },
     
   ],
  
