@@ -31,25 +31,26 @@ Given('user is on Home page', async ({ page }) => {
 });
 
 When('user hovers over Calendar menu and clicks Schedule Meeting',async ({ page }) => {
-
-   
+  
+    logger.info('Clicking on schedule meeting');
     await calendarPage.navigateToScheduleMeeting();
  
 });
 
 Then('Meeting Create page should be displayed',async () => {
-
+    logger.info('Navigating to meeting page');
     await calendarPage.verifyMeetingPage();
 });
 
 Given('user is on Schedule Meeting page',async ({ page }) => {
 
-        
+         logger.info('schedule meeting page...');
          await calendarPage.navigateToScheduleMeeting();
 });
 
 When('user enters meeting details using {string} and clicks Save button',async ({ page }, testData) => {
 
+    logger.info('fill meeting details');
     currentTestData = testData;
     const data = calendarMeetingData[testData];
     await calendarPage.createMeeting(data);
@@ -67,7 +68,7 @@ Then('created meeting subject should be displayed correctly',async ({ page }) =>
 
 When('user hovers over Calendar menu and clicks Schedule Call',async ({ page }) => {
 
- 
+    logger.info('click schedule call');
     await calendarPage.navigateToScheduleCall();
 });
 
@@ -78,12 +79,13 @@ Then('Call Create page should be displayed',async () => {
 
 Given('user is on Schedule Call page',async ({ page }) => {
   
-   
+    logger.info('schedule call page');
     await calendarPage.navigateToScheduleCall();
 });
 
 When('user enters call details using {string} and clicks Save',async ({ page }, testData) => {
 
+    logger.info('fill details in call page and click save');
     currentTestData = testData;
     const data = calendarData[testData];
     await calendarPage.createCall(data);
@@ -97,7 +99,7 @@ Then('created call subject should be displayed correctly',async () => {
 
 When('user hovers over Calendar menu and clicks Create Task',async ({ page }) => {
 
-  
+    logger.info('click create task');
     await calendarPage.navigateToCreateTask();
 });
 
@@ -108,13 +110,13 @@ Then('Task Create page should be displayed',async () => {
 
 Given('user is on Create Task page',async ({ page }) => {
   
-   
-   
+    logger.info('Task page');  
     await calendarPage.navigateToCreateTask();
 });
 
 When('user enters task details using {string} and clicks Save',async ({ page }, testData) => {
 
+    logger.info('fill detials in task page and click save');
     currentTestData = testData;
     const data = calendarData[testData];
     await calendarPage.createTask(data);
@@ -128,7 +130,7 @@ Then('created task subject should be displayed correctly',async () => {
 
 When('user hovers over Calendar menu and clicks Today',async ({ page }) => {
 
-  
+    logger.info('click today option');
     await calendarPage.navigateToToday();
 });
 
