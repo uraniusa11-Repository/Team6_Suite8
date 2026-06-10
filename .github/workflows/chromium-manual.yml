@@ -39,7 +39,7 @@ jobs:
         run: npx bddgen
 
       - name: Run Playwright tests
-        run: npx playwright test --project=setup --project=bdd
+        run: npx playwright test --project=setup --project=bdd --headed
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
