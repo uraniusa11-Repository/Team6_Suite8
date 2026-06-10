@@ -3,7 +3,7 @@ import { createBdd } from 'playwright-bdd';
 import { LoginPage } from '../Pages/LoginPage.js';
 import { HomePage } from '../Pages/HomePage.js';
 import { LogoutPage } from '../Pages/LogoutPage.js';
-import { assertVisible, hover, click, navigateTo } from '../support/helpers.js';
+import { navigateTo } from '../support/helpers.js';
 import { appConfig } from '../config/environment.config.js';
 import { createLogger } from '../Utils/logger.js';
 import { AccountsPage } from '../Pages/AccountsPage.js';
@@ -28,17 +28,25 @@ Before(async ({ page, $testInfo }) => {
     logger.info('Home test setup complete');
 });
 Given('user is on home page', async ({ page }) => {
-    logger.info('Navigating to home page');
+   
+   logger.info('Navigating to home page');
+
     await navigateTo(page, 'home');
 });
 
 When('user clicks on accounts menu', async ({ page }) => {
+  logger.info('Clicking Accounts menu');
+
   accountsPage = new AccountsPage(page);
 
   await accountsPage.clickAccountsMenu();
+ 
 });
 
 Then('user should see below options in accounts dropdown', async ({ page }, dataTable) => {
+  
+  logger.info('Verifying Accounts dropdown options');
+
   const expectedOptions = dataTable.raw().flat();
 
   const actualOptions = await accountsPage.getDropdownOptionsText();
@@ -46,18 +54,26 @@ Then('user should see below options in accounts dropdown', async ({ page }, data
   console.log('actual options are:', actualOptions);
 
   expect(actualOptions).toEqual(expect.arrayContaining(expectedOptions));
+  
 });
 
 When('user clicks Create Account from accounts dropdown',async ({ page }) => {accountsPage = new AccountsPage(page);
+    
+   logger.info('Selecting Create Account option');
 
     await accountsPage.hoverAccountsMenu();
 
     await accountsPage.clickCreateAccount();
+    
   }
 );
 
 Then('user should be navigated to create account page',async ({ page }) => {
+
+    logger.info('Verifying Create Account page');
+
     await accountsPage.verifyCreateAccountPage();
+    
   }
 );
 
@@ -79,19 +95,28 @@ When('user fills account details using {string} and user clicks save button',asy
     await accountsPage.fillAccountDetails(data);
 
     await accountsPage.clickSaveButton();
+
+   logger.info('Saving account details');
   }
 );
 
 Then('user should be navigated to account details page',async ({ page }) => {
+    
+    logger.info('Verifying Account Details page');
+
     accountsPage = new AccountsPage(page);
 
     const data = createAccountData[currentTestData];
 
     await accountsPage.verifySaveNavigation(data.accountName);
+
   }
 );
 
 When('user fills account details and clicks cancel button', async ({ page }) => {
+  
+  logger.info('Filling account details and clicking Cancel');
+
   accountsPage = new AccountsPage(page);
 
   await accountsPage.clickAccountsMenu();
@@ -110,14 +135,22 @@ When('user fills account details and clicks cancel button', async ({ page }) => 
   });
 
   await accountsPage.clickCancelButton();
+ 
 });
 
 Then('warning popup should be displayed', async ({ page }) => {
+  
+  logger.info('Verifying warning popup');
+
   await accountsPage.verifyPopupDisplayed();
+  
 });
 
 Given('warning popup is displayed on account page',async ({ page }) => {
-    const data = createAccountData.account1;
+   
+  logger.info('Preparing warning popup scenario');
+
+   const data = createAccountData.account1;
 
     accountsPage = new AccountsPage(page);
 
@@ -134,20 +167,31 @@ Given('warning popup is displayed on account page',async ({ page }) => {
 );
 
 When('user clicks Ok button on popup', async ({ page }) => {
+  
+  logger.info('Clicking OK button on popup');
+
   accountsPage = new AccountsPage(page);
 
   await accountsPage.clickOkButton();
+
 });
 
 Then('user should navigate away from create account page',async ({ page }) => {
+  
+   logger.info('Verifying navigation after cancel');
+
     accountsPage = new AccountsPage(page);
 
     await accountsPage.verifyCancelNavigation();
+
   }
 );
 
 When('user clicks View Accounts from accounts dropdown',async ({ page }) => {
-    accountsPage = new AccountsPage(page);
+   
+   logger.info('Selecting View Accounts option');
+
+   accountsPage = new AccountsPage(page);
 
     await accountsPage.hoverAccountsMenu();
 
@@ -156,11 +200,17 @@ When('user clicks View Accounts from accounts dropdown',async ({ page }) => {
 );
 
 Then('user should be navigated to accounts list page',async ({ page }) => {
-    await accountsPage.verifyAccountsPage();
-  }
+  
+  logger.info('Verifying Accounts List page');
+
+  await accountsPage.verifyAccountsPage();
+}
 );
 
 When('user clicks Import Accounts from accounts dropdown',async ({ page }) => {
+    
+    logger.info('Selecting Import Accounts option');
+
     accountsPage = new AccountsPage(page);
 
     await accountsPage.hoverAccountsMenu();
@@ -170,6 +220,9 @@ When('user clicks Import Accounts from accounts dropdown',async ({ page }) => {
 );
 
 Then('user should be navigated to import accounts page',async ({ page }) => {
-    await accountsPage.verifyImportAccountsPage();
+    
+   logger.info('Verifying Import Accounts page');
+   
+   await accountsPage.verifyImportAccountsPage();
   }
 );
