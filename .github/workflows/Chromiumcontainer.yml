@@ -49,8 +49,13 @@ jobs:
     - name: Generate BDD specs
       run: npx bddgen
 
+    - name: Start virtual display
+      run: Xvfb :99 -screen 0 1280x720x24 &
+
     - name: Run Playwright tests
-      run: npx playwright test --project=setup --project=${{ inputs.project }} --grep "${{ inputs.grep }}" --reporter=html
+      env:
+        DISPLAY: :99
+      run: npx playwright test --project=setup --project=${{ inputs.project }} --headed --grep "${{ inputs.grep }}" --reporter=html
 
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
