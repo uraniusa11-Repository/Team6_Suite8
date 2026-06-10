@@ -9,6 +9,8 @@ const __dirname  = path.dirname(__filename);
 //const logLevel     = process.env.LOG_LEVEL === 'production' ? 'error' : 'debug';
 const { combine, timestamp, printf, colorize } = winston.format;
 
+const MAX_LOG_SIZE = 4 * 1024 * 1024; // 4 MB
+
 const logDir = path.join(__dirname, '..', 'logs');
 if (!fs.existsSync(logDir)) {
   fs.mkdirSync(logDir, { recursive: true });
@@ -36,10 +38,16 @@ export const createLogger = (testInfo) => {
     const transports = [
     new winston.transports.File({
       filename: path.join(logDir, 'all.log'),
+      maxsize: MAX_LOG_SIZE,
+      maxFiles: 10,
+      tailable: true,
     }),
     new winston.transports.File({
       filename: path.join(logDir, 'errors.log'),
       level: 'error',
+      maxsize: MAX_LOG_SIZE,
+      maxFiles: 10,
+      tailable: true,
     }),
   ];
 
