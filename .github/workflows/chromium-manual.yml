@@ -1,27 +1,21 @@
-name: Playwright Tests (Chromium)
+name: Playwright Tests
+
 on:
-  workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to run tests on'
-        required: true
-        default: 'main'
-      project:
-        description: 'Playwright project to run (e.g. setup, bdd)'
-        required: false
-        default: 'bdd'
-      grep:
-        description: 'Test filter (e.g. Home Page, Login, Dashlets)'
-        required: false
-        default: ''
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   test:
-    timeout-minutes: 60
+    timeout-minutes: 30
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.44.0-jammy
+
     env:
       SUITE_USERNAME: ${{ secrets.SUITE_USERNAME }}
       SUITE_PASSWORD: ${{ secrets.SUITE_PASSWORD }}
@@ -29,44 +23,27 @@ jobs:
       CI: true
       LOG_CONSOLE: false
       LOG_LEVEL: error
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        ref: ${{ inputs.branch }}
+      - uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Cache Playwright Chromium
-      uses: actions/cache@v4
-      id: playwright-cache
-      with:
-        path: ~/.cache/ms-playwright
-        key: ${{ runner.os }}-playwright-chromium-${{ hashFiles('package-lock.json') }}
+      - name: Generate BDD specs
+        run: npx bddgen
 
-    - name: Install Chromium browser
-      if: steps.playwright-cache.outputs.cache-hit != 'true'
-      run: npx playwright install chromium --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test --project=setup --project=bdd
 
-    - name: Install Chromium system dependencies
-      if: steps.playwright-cache.outputs.cache-hit == 'true'
-      run: npx playwright install-deps chromium
-
-    - name: Generate BDD specs
-      run: npx bddgen
-
-    - name: Run Playwright tests
-      run: npx playwright test --project=setup --project=${{ inputs.project }} --grep "${{ inputs.grep }}" --reporter=html
-
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
